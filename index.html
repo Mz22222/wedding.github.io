@@ -51,24 +51,22 @@
             text-align: center;
         }
 
-        /* === НОВЫЙ ГЛАВНЫЙ ЭКРАН с фото, рамкой и именем === */
+        /* === ГЛАВНЫЙ ЭКРАН: ОДИНАРНАЯ РАМКА, ФОТО, ИМЕНА === */
         .hero-frame {
             background: #ffffff;
             padding: 2rem 1.5rem 2rem;
             text-align: center;
             position: relative;
-            border: 12px double #d4c5b2;   /* элегантная двойная рамка как на скриншоте */
-            margin: 1rem;
-            margin-top: 1.5rem;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+            border: 1px solid #d4c5b2;        /* ОДИНАРНАЯ ТОНКАЯ РАМКА */
+            margin: 1.5rem;
+            margin-top: 1.8rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
         .hero-image {
             width: 100%;
             max-width: 380px;
             margin: 0 auto 1.2rem;
             display: block;
-            border-radius: 0px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .hero-image img {
             width: 100%;
@@ -78,7 +76,6 @@
             aspect-ratio: 1 / 1;
             filter: sepia(0.05) contrast(1.02);
         }
-        /* альтернативный стиль, если фото не загрузится — монохромный фон */
         .hero-image-placeholder {
             background: #ece3d8;
             width: 100%;
@@ -311,9 +308,8 @@
 </head>
 <body>
 <div class="container">
-    <!-- ГЛАВНЫЙ ЭКРАН: фото, рамка, имена как на скриншоте АЛЕКСЕЙ / КСЕНИЯ стиль но с нашими именами -->
+    <!-- ГЛАВНЫЙ ЭКРАН: фото, одинарная рамка, имена, город Маргилан (без указания страны) -->
     <div class="hero-frame">
-        <!-- Фото: используем указанную ссылку с Pinterest (или красивая заглушка с вензелями) -->
         <div class="hero-image" id="heroImageContainer">
             <img id="weddingPhoto" src="https://i.pinimg.com/1200x/78/28/e7/7828e702e8bc8ac3a45d110ca5872ecf.jpg" alt="Бунёд и Фарзона" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'hero-image-placeholder\'>✨ Бунёд &amp; Фарзона ✨<br>26.04.2026</div>';">
         </div>
@@ -321,8 +317,8 @@
         <div class="hero-date animate-item delay-1">26 апреля 2026</div>
         <div class="divider-line"></div>
         <div class="hero-location animate-item delay-2">
-            <strong>Маргилан, Узбекистан</strong><br>
-            ул. Мустакиллик, 663
+            <strong>Маргилан</strong><br>
+            улица Мустакиллик, 663
         </div>
         <div class="scroll-hint animate-item delay-3" id="scrollHint">✦ листайте вниз ✦</div>
     </div>
@@ -335,13 +331,13 @@
         <p class="text-center" style="font-size: 16px;">Надеемся, что вы примете наше приглашение, будем вас ждать!</p>
     </div>
 
-    <!-- ЛОКАЦИЯ (Узбекистан, Маргилан) -->
+    <!-- ЛОКАЦИЯ (Маргилан, без Узбекистана) -->
     <div class="section location-block">
         <div class="section-title">Локация</div>
         <p style="font-size: 16px;">Ждем вас по адресу:</p>
         <div class="resto-name">Ресторан “Маргилан Сай”</div>
-        <div class="address-detail">Узбекистан, г. Маргилан, улица Мустакиллик, 663</div>
-        <div class="address-detail" style="font-size: 14px; margin-top: 5px;">(Банкетный зал «Националь» / зал торжеств)</div>
+        <div class="address-detail">Маргилан, улица Мустакиллик, 663</div>
+        <div class="address-detail" style="font-size: 14px; margin-top: 5px;">(Банкетный зал «Националь»)</div>
         <div class="divider-line" style="margin: 1.2rem auto;"></div>
         <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>15:00</strong> <span class="heart">❤</span></p>
     </div>
