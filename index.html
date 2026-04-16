@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Приглашение на свадьбу | Бунёд & Фарзона</title>
-    <!-- Fonts: Garamond / Cormorant как в шаблоне (элегантный, винтажный) -->
+    <!-- Fonts: Garamond / Cormorant (элегантный стиль) -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -27,7 +27,6 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.02);
         }
 
-        /* секции */
         .section {
             padding: 2.5rem 2rem;
             border-bottom: 1px solid #eae6e0;
@@ -51,13 +50,13 @@
             text-align: center;
         }
 
-        /* === ГЛАВНЫЙ ЭКРАН: ОДИНАРНАЯ РАМКА, ФОТО, ИМЕНА === */
+        /* === ГЛАВНЫЙ ЭКРАН: ОДИНАРНАЯ РАМКА, ФОТО === */
         .hero-frame {
             background: #ffffff;
             padding: 2rem 1.5rem 2rem;
             text-align: center;
             position: relative;
-            border: 1px solid #d4c5b2;        /* ОДИНАРНАЯ ТОНКАЯ РАМКА */
+            border: 1px solid #d4c5b2;
             margin: 1.5rem;
             margin-top: 1.8rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
@@ -97,9 +96,6 @@
             color: #2c221b;
             letter-spacing: 1px;
         }
-        .hero-names span {
-            font-size: 44px;
-        }
         .hero-date {
             font-size: 22px;
             font-weight: 400;
@@ -113,9 +109,6 @@
             letter-spacing: 1px;
             margin: 0.8rem 0;
             font-weight: 400;
-        }
-        .hero-location strong {
-            font-weight: 600;
         }
         .divider-line {
             width: 50px;
@@ -132,7 +125,91 @@
             color: #8f7a64;
         }
 
-        /* прочие блоки */
+        /* КАЛЕНДАРЬ - как на скриншоте, но адаптивный */
+        .calendar-wrap {
+            max-width: 320px;
+            margin: 0 auto;
+            background: #fffdf9;
+            border: 1px solid #e2d9cf;
+            padding: 0.8rem 0.5rem 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .calendar-month {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+        }
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e2d9cf;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+            color: #6b5a48;
+        }
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            gap: 4px 0;
+        }
+        .calendar-day {
+            padding: 8px 0;
+            font-size: 16px;
+            font-weight: 400;
+            color: #2c2c2c;
+            font-family: 'Cormorant Garamond', monospace;
+        }
+        .calendar-day.other-month {
+            color: #cbc1b4;
+        }
+        .calendar-day.highlight {
+            background: #d9c9b5;
+            color: #2c221b;
+            font-weight: 700;
+            border-radius: 30px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            margin: 0 auto;
+            transition: 0.1s;
+        }
+        .calendar-day .day-number {
+            display: inline-block;
+            width: 32px;
+            line-height: 32px;
+            border-radius: 32px;
+        }
+        .calendar-day.highlight .day-number {
+            background: #c2a887;
+            color: white;
+            font-weight: bold;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* подпись под календарем */
+        .calendar-caption {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #9f8b74;
+        }
+
+        /* остальные блоки */
         .location-block {
             text-align: center;
         }
@@ -140,10 +217,6 @@
             font-size: 28px;
             font-weight: 500;
             margin: 0.5rem 0;
-        }
-        .address-detail {
-            font-size: 16px;
-            margin-top: 0.3rem;
         }
         .timeline-item {
             display: flex;
@@ -303,15 +376,14 @@
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- ГЛАВНЫЙ ЭКРАН: фото, одинарная рамка, имена, город Маргилан (без указания страны) -->
+    <!-- ГЛАВНЫЙ ЭКРАН: фото, одинарная рамка, имена -->
     <div class="hero-frame">
-        <div class="hero-image" id="heroImageContainer">
-            <img id="weddingPhoto" src="https://i.pinimg.com/1200x/78/28/e7/7828e702e8bc8ac3a45d110ca5872ecf.jpg" alt="Бунёд и Фарзона" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'hero-image-placeholder\'>✨ Бунёд &amp; Фарзона ✨<br>26.04.2026</div>';">
+        <div class="hero-image">
+            <img src="https://i.pinimg.com/1200x/78/28/e7/7828e702e8bc8ac3a45d110ca5872ecf.jpg" alt="Бунёд и Фарзона" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'hero-image-placeholder\'>✨ Бунёд &amp; Фарзона ✨<br>26.04.2026</div>';">
         </div>
         <div class="hero-names animate-item">Бунёд <span style="font-family: serif;">&</span> Фарзона</div>
         <div class="hero-date animate-item delay-1">26 апреля 2026</div>
@@ -323,7 +395,22 @@
         <div class="scroll-hint animate-item delay-3" id="scrollHint">✦ листайте вниз ✦</div>
     </div>
 
-    <!-- Дорогие гости! текст (стиль как в предыдущих версиях) -->
+    <!-- КАЛЕНДАРЬ С ВЫДЕЛЕННОЙ ДАТОЙ (апрель 2026, 26 число) -->
+    <div class="section">
+        <div class="section-title">Календарь события</div>
+        <div class="calendar-wrap">
+            <div class="calendar-month">АПРЕЛЬ 2026</div>
+            <div class="calendar-weekdays">
+                <span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span>
+            </div>
+            <div class="calendar-days" id="dynamicCalendar">
+                <!-- дни будут заполнены скриптом -->
+            </div>
+            <div class="calendar-caption">❤️ 26 апреля — наш особенный день ❤️</div>
+        </div>
+    </div>
+
+    <!-- Дорогие гости! текст -->
     <div class="section">
         <div class="section-title">Дорогие гости!</div>
         <p class="text-center" style="font-size: 17px; line-height: 1.45;">Мы счастливы пригласить вас на самый важный день в нашей жизни — нашу свадьбу!<br><br>В этот день мы хотим быть в окружении самых близких и дорогих людей.</p>
@@ -342,7 +429,7 @@
         <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>15:00</strong> <span class="heart">❤</span></p>
     </div>
 
-    <!-- ПРОГРАММА ДНЯ (план) -->
+    <!-- ПРОГРАММА ДНЯ -->
     <div class="section">
         <div class="section-title">План дня</div>
         <div class="timeline-item">
@@ -363,7 +450,7 @@
         </div>
     </div>
 
-    <!-- ДРЕСС-КОД и цветовая палитра -->
+    <!-- ДРЕСС-КОД -->
     <div class="section">
         <div class="section-title">Дресс-код</div>
         <p class="text-center">Мы будем рады видеть вас в любом наряде, но нам будет еще приятнее, если вы поддержите общую гамму нашего торжества.</p>
@@ -380,7 +467,7 @@
         </div>
     </div>
 
-    <!-- ДЕТАЛИ: без детей, книги, без горько -->
+    <!-- ДЕТАЛИ -->
     <div class="section">
         <div class="section-title">Детали</div>
         <div class="detail-card">
@@ -394,7 +481,7 @@
         </div>
     </div>
 
-    <!-- АНКЕТА ГОСТЯ (форма) -->
+    <!-- АНКЕТА ГОСТЯ -->
     <div class="section">
         <div class="section-title">Анкета гостя</div>
         <p class="text-center" style="margin-bottom: 1.2rem; font-size: 15px;">Пожалуйста, подтвердите ваше присутствие на нашем празднике <strong>до 01 июня 2025 года</strong> и ответьте на несколько вопросов.</p>
@@ -429,10 +516,10 @@
         <div id="formStatus" style="text-align: center; margin-top: 12px; font-size: 14px; color: #b1573f;"></div>
     </div>
 
-    <!-- ТАЙМЕР до свадьбы -->
+    <!-- ТАЙМЕР -->
     <div class="section">
         <div class="section-title">Мы станем семьей через...</div>
-        <div class="timer-box" id="timerBlock">
+        <div class="timer-box">
             <div class="timer-digits" id="timerDisplay">
                 <span class="timer-unit">0 месяцев</span>
                 <span class="timer-unit">0 дней</span>
@@ -451,6 +538,56 @@
 </div>
 
 <script>
+    // ---- ГЕНЕРАТОР КАЛЕНДАРЯ для АПРЕЛЯ 2026 с выделением 26 числа ----
+    function buildApril2026Calendar() {
+        const container = document.getElementById('dynamicCalendar');
+        if (!container) return;
+        
+        const year = 2026;
+        const month = 3; // апрель = 3 (0-индекс)
+        const highlightDay = 26;
+        
+        const firstDayOfMonth = new Date(year, month, 1);
+        let startWeekday = firstDayOfMonth.getDay(); // 0 = воскресенье, но в календаре ПН первый
+        // преобразуем: если воскресенье (0) -> 6, иначе сдвиг (пн=1 -> 0)
+        let startOffset = (startWeekday === 0) ? 6 : startWeekday - 1;
+        
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        
+        // дни предыдущего месяца (март 2026)
+        const prevMonthDate = new Date(year, month, 0);
+        const daysInPrev = prevMonthDate.getDate();
+        
+        let calendarHTML = '';
+        
+        // заполняем пустые ячейки предыдущего месяца
+        for (let i = 0; i < startOffset; i++) {
+            let prevDay = daysInPrev - startOffset + i + 1;
+            calendarHTML += `<div class="calendar-day other-month"><span class="day-number">${prevDay}</span></div>`;
+        }
+        
+        // текущий месяц
+        for (let d = 1; d <= daysInMonth; d++) {
+            const isHighlight = (d === highlightDay);
+            if (isHighlight) {
+                calendarHTML += `<div class="calendar-day highlight"><span class="day-number">${d}</span></div>`;
+            } else {
+                calendarHTML += `<div class="calendar-day"><span class="day-number">${d}</span></div>`;
+            }
+        }
+        
+        // добавим дни следующего месяца для заполнения сетки (чтобы было 6 строк)
+        const totalCells = Math.ceil((startOffset + daysInMonth) / 7) * 7;
+        const remaining = totalCells - (startOffset + daysInMonth);
+        for (let i = 1; i <= remaining; i++) {
+            calendarHTML += `<div class="calendar-day other-month"><span class="day-number">${i}</span></div>`;
+        }
+        
+        container.innerHTML = calendarHTML;
+    }
+    
+    buildApril2026Calendar();
+    
     // ТАЙМЕР до 26 апреля 2026, 15:00
     function updateWeddingTimer() {
         const weddingDate = new Date(2026, 3, 26, 15, 0, 0);
