@@ -57,8 +57,8 @@
             text-align: center;
             position: relative;
             border: 1px solid #d4c5b2;
-            margin: 2rem 1.5rem 1.8rem;  /* увеличил верхний отступ, чтобы рамка была ниже */
-            margin-top: 2.2rem;           /* чуть больше сверху */
+            margin: 2rem 1.5rem 1.8rem;
+            margin-top: 2.2rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
         .hero-image {
@@ -314,9 +314,11 @@
         .footer {
             text-align: center;
             padding: 2rem;
-            font-size: 12px;
+            font-size: 14px;
             border-top: none;
             color: #7a6e60;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.6;
         }
         .heart {
             font-size: 1.2rem;
@@ -354,6 +356,10 @@
                 padding: 1.2rem;
                 font-size: 16px;
             }
+            .footer {
+                padding: 1.5rem;
+                font-size: 12px;
+            }
         }
         .animate-item {
             opacity: 0;
@@ -373,7 +379,7 @@
 </head>
 <body>
 <div class="container">
-    <!-- ГЛАВНЫЙ ЭКРАН: фото, одинарная рамка, имена (без анимации скролла, только появление при загрузке) -->
+    <!-- ГЛАВНЫЙ ЭКРАН: фото, одинарная рамка, имена -->
     <div class="hero-frame">
         <div class="hero-image">
             <img src="https://i.pinimg.com/1200x/78/28/e7/7828e702e8bc8ac3a45d110ca5872ecf.jpg" alt="Бунёд и Фарзона" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'hero-image-placeholder\'>✨ Бунёд &amp; Фарзона ✨<br>26.04.2026</div>';">
@@ -416,10 +422,10 @@
         <div class="resto-name">Ресторан “Маргилан Сай”</div>
         <div class="address-detail">Узбекистан, город Маргилан, улица Мустакиллик, 663</div>
         <div class="divider-line" style="margin: 1.2rem auto;"></div>
-        <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>14:45</strong> <span class="heart">❤</span></p>
+        <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>15:00</strong> <span class="heart">❤</span></p>
         
         <a href="https://yandex.ru/maps/?text=Узбекистан%2C%20Маргилан%2C%20улица%20Мустакиллик%2C%20663&mode=routes" target="_blank" rel="noopener noreferrer" class="map-button">
-             Проложить маршрут 
+            🗺️ Проложить маршрут в Яндекс.Картах
         </a>
     </div>
 
@@ -427,19 +433,19 @@
     <div class="section fade-on-scroll">
         <div class="section-title">План дня</div>
         <div class="timeline-item">
-            <div class="timeline-time">15:00</div>
+            <div class="timeline-time">15:30</div>
             <div class="timeline-desc">Торжественная церемония <small>Не исключено, что вам потребуются платочки для этого трогательного момента</small></div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-time">17:00</div>
+            <div class="timeline-time">17:30</div>
             <div class="timeline-desc">Свадебный ужин <small>Вкусные блюда и веселая программа от ведущего</small></div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-time">21:00</div>
+            <div class="timeline-time">21:30</div>
             <div class="timeline-desc">Торт <small>Обещаем, торт продавать мы не будем</small></div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-time">22:00</div>
+            <div class="timeline-time">22:30</div>
             <div class="timeline-desc">Завершение вечера <small>Даже такая вечеринка может закончиться</small></div>
         </div>
     </div>
@@ -448,9 +454,9 @@
     <div class="section fade-on-scroll">
         <div class="section-title">Дресс-код</div>
         <div class="dresscode-textblock">
-            <p>  Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!</p>
-            <p>  Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами, в которых вам будет комфортно.</p>
-            <p class="white-dress-note">  Девушки, я бы очень хотела, чтобы белый цвет в этот день был только моим цветом.</p>
+            <p>Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!</p>
+            <p>Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами, в которых вам будет комфортно.</p>
+            <p class="white-dress-note">Девушки, я бы очень хотела, чтобы белый цвет в этот день был только моим цветом.</p>
         </div>
     </div>
 
@@ -467,6 +473,7 @@
         </div>
     </div>
 
+    <!-- ФУТЕР - теперь с правильным классом fade-on-scroll и гарантированным появлением -->
     <div class="footer fade-on-scroll">
         Бунёд & Фарзона<br>
         Ждем вас 26 апреля 2026, Маргилан, 15:00
@@ -552,31 +559,45 @@
     setInterval(updateWeddingTimer, 60000);
 
     // плавный скролл по хинту
-    document.getElementById('scrollHint')?.addEventListener('click', () => {
-        window.scrollBy({ top: window.innerHeight * 0.7, behavior: 'smooth' });
-    });
+    const scrollHint = document.getElementById('scrollHint');
+    if (scrollHint) {
+        scrollHint.addEventListener('click', () => {
+            window.scrollBy({ top: window.innerHeight * 0.7, behavior: 'smooth' });
+        });
+    }
 
-    // АНИМАЦИЯ ПРИ СКРОЛЛЕ: отслеживаем появление блоков
+    // АНИМАЦИЯ ПРИ СКРОЛЛЕ: улучшенная версия с Intersection Observer для надёжности
     const fadeElements = document.querySelectorAll('.fade-on-scroll');
     
-    function checkVisibility() {
+    // Используем Intersection Observer для более точного отслеживания
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Можно продолжать наблюдать, но чтобы не тратить ресурсы, отключаем после появления
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+    
+    fadeElements.forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Также на всякий случай дублируем старым методом для футера
+    function checkVisibilityFallback() {
         fadeElements.forEach(el => {
             const rect = el.getBoundingClientRect();
             const windowHeight = window.innerHeight;
-            // Если элемент появился в области видимости (с небольшим запасом)
-            if (rect.top < windowHeight - 100 && rect.bottom > 0) {
+            if (rect.top < windowHeight - 80 && rect.bottom > 0) {
                 el.classList.add('visible');
             }
         });
     }
     
-    // Запускаем проверку при загрузке и при скролле
-    window.addEventListener('load', checkVisibility);
-    window.addEventListener('scroll', checkVisibility);
-    window.addEventListener('resize', checkVisibility);
-    
-    // Также добавим небольшую задержку, чтобы проверить сразу после рендера
-    setTimeout(checkVisibility, 200);
+    window.addEventListener('load', checkVisibilityFallback);
+    window.addEventListener('scroll', checkVisibilityFallback);
+    setTimeout(checkVisibilityFallback, 300);
 </script>
 </body>
 </html>
