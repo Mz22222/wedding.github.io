@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Фарзона & Бунёд | Wedding</title>
+    <title>Бунёд & Фарзона | Свадьба</title>
     <style>
         * {
             margin: 0;
@@ -13,193 +13,201 @@
 
         body {
             background: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: #1a1a1a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            color: #111;
             line-height: 1.4;
             font-weight: 400;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* Контейнер — узко, по центру, как в типографике */
-        .container {
+        .page {
             max-width: 680px;
             margin: 0 auto;
-            padding: 48px 24px 72px;
+            padding: 56px 24px 80px;
         }
 
-        /* Даты в стиле минимализм: крупно, сухо, элегантно */
-        .date-hero {
+        /* Заголовок: дата крупно */
+        .hero-date {
+            font-size: 64px;
+            font-weight: 450;
+            letter-spacing: -1px;
             text-align: center;
-            margin-bottom: 56px;
-            letter-spacing: -0.02em;
+            margin-bottom: 48px;
+            color: #000;
         }
 
-        .date-numbers {
-            font-size: clamp(3rem, 12vw, 6rem);
-            font-weight: 400;
-            line-height: 1.1;
-            color: #111;
+        @media (max-width: 500px) {
+            .hero-date {
+                font-size: 48px;
+            }
         }
 
-        .date-numbers span {
-            margin: 0 4px;
-        }
-
-        /* Имена — большие, чёткие, по центру */
+        /* Имена */
         .names {
             text-align: center;
-            margin: 48px 0 24px;
-        }
-
-        .name {
-            font-size: clamp(2.2rem, 8vw, 4rem);
+            font-size: 36px;
             font-weight: 400;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.5px;
+            margin: 32px 0 24px;
             text-transform: uppercase;
         }
 
         .ampersand {
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
-            text-transform: lowercase;
-            color: #888;
-            margin: 8px 0;
+            font-size: 24px;
+            margin: 0 8px;
             font-weight: 300;
-        }
-
-        /* Приглашение — одна строка, тонко */
-        .invite-line {
-            text-align: center;
-            font-size: 0.9rem;
-            letter-spacing: 0.3px;
-            color: #3a3a3a;
-            border-top: 0.5px solid #e2e2e2;
-            border-bottom: 0.5px solid #e2e2e2;
-            display: inline-block;
-            width: auto;
-            padding: 12px 0;
-            margin: 24px auto;
-            font-weight: 380;
-        }
-
-        .invite-wrapper {
-            text-align: center;
-        }
-
-        /* Секции — минимум декора */
-        .section {
-            margin: 64px 0;
-        }
-
-        .section-title {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #aaa;
-            margin-bottom: 24px;
-            text-align: center;
-            font-weight: 400;
-        }
-
-        /* Таймер — строгий, с пробелами */
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 28px;
-            text-align: center;
-            flex-wrap: wrap;
-        }
-
-        .timer-block {
-            min-width: 60px;
-        }
-
-        .timer-number {
-            font-size: 2.5rem;
-            font-weight: 450;
-            font-feature-settings: "tnum";
-            font-variant-numeric: tabular-nums;
-            color: #000;
-            letter-spacing: -0.5px;
-        }
-
-        .timer-label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: #aaa;
-            margin-top: 6px;
-        }
-
-        /* Информация: событие, время, место — очень лаконично */
-        .event-detail {
-            text-align: center;
-            font-size: 1rem;
-            font-weight: 380;
-            margin: 12px 0;
-            color: #222;
-        }
-
-        .event-detail strong {
-            font-weight: 500;
-        }
-
-        .location {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
             color: #555;
         }
 
+        /* Пригласительная строка */
+        .invite-text {
+            text-align: center;
+            font-size: 15px;
+            color: #2c2c2c;
+            max-width: 460px;
+            margin: 24px auto;
+            line-height: 1.5;
+            font-weight: 380;
+        }
+
+        /* Таймер в одну строку */
+        .timer-row {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 450;
+            letter-spacing: 1px;
+            margin: 48px 0 32px;
+            border-top: 0.5px solid #e5e5e5;
+            border-bottom: 0.5px solid #e5e5e5;
+            padding: 24px 0;
+            color: #111;
+        }
+
+        .timer-row span {
+            margin: 0 4px;
+            white-space: nowrap;
+        }
+
+        /* Секции */
+        .section {
+            margin: 52px 0;
+        }
+
+        .section-title {
+            font-size: 13px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Программа — как на референсе: время + событие */
+        .schedule-item {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            font-size: 16px;
+            margin: 12px 0;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .schedule-time {
+            font-weight: 500;
+            min-width: 70px;
+        }
+
+        .schedule-event {
+            color: #333;
+        }
+
+        /* Локация и адрес */
+        .location-name {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 450;
+            margin-bottom: 8px;
+        }
+
+        .address {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 16px;
+        }
+
         .map-link {
-            display: inline-block;
-            margin-top: 12px;
-            font-size: 0.8rem;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .map-link a {
             color: #888;
             text-decoration: none;
             border-bottom: 0.5px solid #ddd;
-            transition: color 0.2s;
         }
 
-        .map-link:hover {
-            color: #000;
-            border-bottom-color: #aaa;
+        /* Dress code + хештег */
+        .note-line {
+            text-align: center;
+            font-size: 14px;
+            margin: 16px 0;
+            color: #333;
         }
 
-        /* RSVP форма — минималистичная */
-        .rsvp-form {
-            max-width: 440px;
+        .hashtag {
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+            color: #666;
+            margin-top: 16px;
+        }
+
+        /* RSVP форма */
+        .rsvp-box {
+            margin: 48px 0 32px;
+        }
+
+        .rsvp-title {
+            text-align: center;
+            font-size: 15px;
+            font-weight: 450;
+            margin-bottom: 24px;
+        }
+
+        .rsvp-deadline {
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 28px;
+        }
+
+        form {
+            max-width: 420px;
             margin: 0 auto;
         }
 
         input, select, textarea {
             width: 100%;
             background: #fff;
-            border: 0.5px solid #ddd;
-            padding: 14px 0 14px 0;
+            border: none;
+            border-bottom: 0.5px solid #ddd;
+            padding: 12px 0;
             margin: 16px 0;
-            font-size: 0.9rem;
+            font-size: 15px;
             font-family: inherit;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            border-radius: 0;
-            transition: border-color 0.2s;
             outline: none;
+            transition: border-color 0.2s;
         }
 
         input:focus, select:focus, textarea:focus {
             border-bottom-color: #000;
         }
 
-        select {
-            appearance: none;
-            background: #fff;
-            cursor: pointer;
-        }
-
         textarea {
+            min-height: 60px;
             resize: vertical;
-            min-height: 70px;
         }
 
         button {
@@ -208,206 +216,181 @@
             border: none;
             width: 100%;
             padding: 14px 0;
-            font-size: 0.85rem;
+            font-size: 14px;
             letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
-            font-family: inherit;
-            margin-top: 16px;
-            transition: opacity 0.2s;
-        }
-
-        button:hover {
-            opacity: 0.8;
+            margin: 24px 0 16px;
+            font-weight: 400;
         }
 
         button:disabled {
-            opacity: 0.4;
-            cursor: default;
+            opacity: 0.5;
         }
 
-        .status-msg {
+        .status {
             text-align: center;
-            font-size: 0.8rem;
-            margin-top: 20px;
+            font-size: 13px;
+            margin-top: 12px;
             color: #3a3a3a;
         }
 
         hr {
             border: none;
             border-top: 0.5px solid #ececec;
-            margin: 56px 0 32px;
+            margin: 48px 0 24px;
         }
 
         footer {
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 11px;
             color: #bbb;
-            margin-top: 56px;
-            letter-spacing: 0.3px;
+            margin-top: 40px;
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 32px 20px 56px;
+            .page {
+                padding: 32px 20px 60px;
             }
-            .timer {
+            .timer-row {
+                font-size: 16px;
+                padding: 18px 0;
+            }
+            .schedule-item {
                 gap: 16px;
-            }
-            .timer-number {
-                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
-<div class="container">
+<div class="page">
 
-    <!-- ДАТА 26 04 26 как на вашем референсе -->
-    <div class="date-hero">
-        <div class="date-numbers">
-            26<br>
-            04<br>
-            26
-        </div>
+    <!-- ДАТА крупно -->
+    <div class="hero-date">
+        26.04.26
     </div>
 
-    <!-- ИМЕНА ФАРЗОНА and БУНЁД -->
+    <!-- Имена: Бунёд и Фарзона -->
     <div class="names">
-        <div class="name">ФАРЗОНА</div>
-        <div class="ampersand">and</div>
-        <div class="name">БУНЁД</div>
+        БУНЁД <span class="ampersand">&</span> ФАРЗОНА
     </div>
 
-    <!-- Строка приглашения (тонко) -->
-    <div class="invite-wrapper">
-        <div class="invite-line">
-            ПРИГЛАШАЕМ ВАС РАЗДЕЛИТЬ С НАМИ РАДОСТЬ ГЛАВНОГО СОБЫТИЯ В НАШЕЙ ЖИЗНИ
-        </div>
+    <!-- Пригласительный текст -->
+    <div class="invite-text">
+        Мы рады сообщить Вам, что 26 апреля 2026 состоится<br>
+        самое главное торжество в нашей жизни — день нашей свадьбы!<br>
+        Приглашаем Вас разделить с нами радость этого незабываемого дня.
     </div>
 
-    <!-- ДАТА И ВРЕМЯ (как в шаблоне) -->
+    <!-- Таймер одной строкой как в примере: 0дней:0часов:0минут:0секунд -->
+    <div class="timer-row" id="timerLine">
+        0дней : 0часов : 0минут : 0секунд
+    </div>
+
+    <!-- Программа дня (время как на референсе) -->
     <div class="section">
-        <div class="section-title"></div>
-        <div class="event-detail">
-            <strong>ВОСКРЕСЕНЬЕ, 26 АПРЕЛЯ 2026</strong><br>
-            НАЧАЛО В 15:00
+        <div class="section-title">ПРОГРАММА ДНЯ</div>
+        <div class="schedule-item">
+            <div class="schedule-time">14:30</div>
+            <div class="schedule-event">Сбор гостей</div>
+        </div>
+        <div class="schedule-item">
+            <div class="schedule-time">15:00</div>
+            <div class="schedule-event">Церемония бракосочетания</div>
+        </div>
+        <div class="schedule-item">
+            <div class="schedule-time">15:30</div>
+            <div class="schedule-event">Начало банкета</div>
         </div>
     </div>
 
-    <!-- ТАЙМЕР с единицами: недели, дни, часы, минуты, секунды -->
-    <div class="section">
-        <div class="section-title">ДО ТОРЖЕСТВА</div>
-        <div class="timer" id="timer">
-            <div class="timer-block"><div class="timer-number" id="weeks">00</div><div class="timer-label">недель</div></div>
-            <div class="timer-block"><div class="timer-number" id="days">00</div><div class="timer-label">дней</div></div>
-            <div class="timer-block"><div class="timer-number" id="hours">00</div><div class="timer-label">часов</div></div>
-            <div class="timer-block"><div class="timer-number" id="minutes">00</div><div class="timer-label">минут</div></div>
-            <div class="timer-block"><div class="timer-number" id="seconds">00</div><div class="timer-label">секунд</div></div>
-        </div>
-    </div>
-
-    <!-- МЕСТО -->
+    <!-- Локация -->
     <div class="section">
         <div class="section-title">ЛОКАЦИЯ</div>
-        <div class="location">
-            Ресторан "Маргилан Сай"<br>
-            ул. Центральная, 12, Ташкент
-        </div>
-        <div style="text-align: center;">
-            <a href="https://maps.yandex.ru/?text=Маргилан%20Сай%20Ташкент" target="_blank" class="map-link">ОТКРЫТЬ КАРТУ</a>
+        <div class="location-name">Ресторан "Маргилан Сай"</div>
+        <div class="address">ул. Центральная, 12, Ташкент</div>
+        <div class="map-link">
+            <a href="https://maps.yandex.ru/?text=Маргилан%20Сай%20Ташкент" target="_blank">Открыть карту →</a>
         </div>
     </div>
 
-    <!-- ПРОГРАММА (минимально) -->
-    <div class="section">
-        <div class="section-title">ПРОГРАММА</div>
-        <div class="event-detail">
-            14:30 — СБОР ГОСТЕЙ<br>
-            15:00 — ЦЕРЕМОНИЯ<br>
-            15:30 — БАНКЕТ
-        </div>
+    <!-- Dress code (лёгкая рекомендация) -->
+    <div class="note-line">
+        Dress code: элегантный образ (приветствуются светлые тона)
+    </div>
+    <div class="hashtag">
+        #БунёдИФарзона2026
     </div>
 
-    <!-- RSVP ФОРМА -->
-    <div class="section">
-        <div class="section-title">ПОДТВЕРДИТЕ ПРИСУТСТВИЕ</div>
-        <div class="rsvp-form">
-            <form id="rsvpForm">
-                <input type="text" id="guestName" placeholder="Ваше имя" autocomplete="off">
-                <select id="attending">
-                    <option value="yes">Буду с радостью</option>
-                    <option value="no">Не смогу прийти</option>
-                </select>
-                <textarea id="comment" placeholder="Пожелания или вопрос (необязательно)"></textarea>
-                <button type="submit" id="submitBtn">ОТПРАВИТЬ</button>
-            </form>
-            <div id="rsvpStatus" class="status-msg"></div>
-        </div>
+    <!-- RSVP блок -->
+    <div class="rsvp-box">
+        <div class="rsvp-title">ПОДТВЕРДИТЕ, ПОЖАЛУЙСТА, СВОЁ ПРИСУТСТВИЕ</div>
+        <div class="rsvp-deadline">Будем ждать ответ до 20 апреля 2026</div>
+
+        <form id="rsvpForm">
+            <input type="text" id="guestName" placeholder="Ваше имя и фамилия" autocomplete="off">
+            <select id="attending">
+                <option value="yes">Конечно, буду! 🎉</option>
+                <option value="no">К сожалению, не смогу</option>
+            </select>
+            <textarea id="comment" placeholder="Пожелания, вопросы, особые предпочтения..."></textarea>
+            <button type="submit" id="submitBtn">Подтвердить присутствие</button>
+        </form>
+        <div id="statusMsg" class="status"></div>
     </div>
 
     <hr>
     <footer>
-        ФАРЗОНА & БУНЁД<br>
-        Будем ждать вас в этот день
+        Бунёд & Фарзона<br>
+        Ждём вас в этот важный день
     </footer>
 </div>
 
 <script>
-    // ============================================================
-    // ТАЙМЕР: 26 апреля 2026, 15:00 (недели + дни + часы и т.д.)
-    // ============================================================
+    // ТАЙМЕР: до 26 апреля 2026 15:00 (формат: 0дней:0часов:0минут:0секунд)
     function updateTimer() {
-        const target = new Date(2026, 3, 26, 15, 0, 0); // 26 апреля 2026 15:00
+        const target = new Date(2026, 3, 26, 15, 0, 0);
         const now = new Date();
         const diff = target - now;
 
         if (diff <= 0) {
-            document.getElementById("timer").innerHTML = "<div style='text-align:center'>СВАДЬБА НАСТУПИЛА 🎉</div>";
+            document.getElementById("timerLine").innerHTML = "Свадьба наступила! 🎉";
             return;
         }
 
         const totalSeconds = Math.floor(diff / 1000);
-        const weeks = Math.floor(totalSeconds / (7 * 24 * 3600));
-        const days = Math.floor((totalSeconds % (7 * 24 * 3600)) / (24 * 3600));
+        const days = Math.floor(totalSeconds / (24 * 3600));
         const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
         const minutes = Math.floor((totalSeconds % 3600) / 60);
         const seconds = totalSeconds % 60;
 
-        document.getElementById("weeks").innerText = weeks < 10 ? "0" + weeks : weeks;
-        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        const timerText = `${days}дней : ${hours}часов : ${minutes}минут : ${seconds}секунд`;
+        document.getElementById("timerLine").innerHTML = timerText;
     }
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    // ============================================================
-    // TELEGRAM RSVP (минимализм — бот)
-    // ============================================================
-    // ⬇️⬇️⬇️ ВСТАВЬТЕ ВАШИ ДАННЫЕ Telegram ⬇️⬇️⬇️
-    const TELEGRAM_BOT_TOKEN = "ВАШ_ТОКЕН";       // токен от @BotFather
-    const TELEGRAM_CHAT_ID = "ВАШ_CHAT_ID";      // цифры от @userinfobot
-    // ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️
+    // ========== TELEGRAM (вставьте ваши данные) ==========
+    const TELEGRAM_BOT_TOKEN = "ВАШ_ТОКЕН";       // замените на токен от @BotFather
+    const TELEGRAM_CHAT_ID = "ВАШ_CHAT_ID";      // замените на ID от @userinfobot
 
     const form = document.getElementById("rsvpForm");
     const submitBtn = document.getElementById("submitBtn");
-    const statusDiv = document.getElementById("rsvpStatus");
+    const statusDiv = document.getElementById("statusMsg");
 
     async function sendToTelegram(name, attending, comment) {
         const status = attending === "yes" ? "✅ ПРИДЁТ" : "❌ НЕ ПРИДЁТ";
         const emoji = attending === "yes" ? "🎉" : "";
-        const message = `💍 НОВЫЙ ГОСТЬ\n\nИмя: ${name}\nСтатус: ${status} ${emoji}\nКомментарий: ${comment || "—"}\n\nВремя: ${new Date().toLocaleString("ru-RU")}`;
+        const message = `💒 НОВЫЙ ГОСТЬ\n\nИмя: ${name}\nСтатус: ${status} ${emoji}\nКомментарий: ${comment || "—"}\n\nВремя: ${new Date().toLocaleString("ru-RU")}`;
         
         const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
         try {
-            const response = await fetch(url, {
+            const resp = await fetch(url, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message })
             });
-            const data = await response.json();
+            const data = await resp.json();
             return data.ok;
         } catch {
             return false;
@@ -419,30 +402,30 @@
         const name = document.getElementById("guestName").value.trim();
         if (!name) {
             statusDiv.innerText = "Пожалуйста, укажите ваше имя";
-            statusDiv.style.color = "#a55";
+            statusDiv.style.color = "#b55";
             return;
         }
-        
+
         const attending = document.getElementById("attending").value;
         const comment = document.getElementById("comment").value;
-        
+
         submitBtn.disabled = true;
-        submitBtn.innerText = "ОТПРАВЛЯЮ...";
-        
+        submitBtn.innerText = "Отправляю...";
+
         const ok = await sendToTelegram(name, attending, comment);
-        
+
         if (ok) {
-            statusDiv.innerText = `Спасибо, ${name}! Ответ получен. Ждём вас.`;
-            statusDiv.style.color = "#1a1a1a";
-            document.getElementById("rsvpForm").reset();
+            statusDiv.innerText = `Спасибо, ${name}! Ваш ответ получен. Ждём вас!`;
+            statusDiv.style.color = "#2a6b2a";
+            form.reset();
         } else {
-            statusDiv.innerText = "Ошибка. Попробуйте ещё раз или напишите нам лично.";
-            statusDiv.style.color = "#a55";
+            statusDiv.innerText = "Ошибка отправки. Попробуйте ещё раз или напишите нам лично.";
+            statusDiv.style.color = "#b55";
         }
-        
+
         submitBtn.disabled = false;
-        submitBtn.innerText = "ОТПРАВИТЬ";
-        setTimeout(() => { if (statusDiv.innerText) statusDiv.innerText = ""; }, 5000);
+        submitBtn.innerText = "Подтвердить присутствие";
+        setTimeout(() => { statusDiv.innerText = ""; }, 5000);
     });
 </script>
 </body>
