@@ -388,8 +388,8 @@
         <div class="hero-date animate-item delay-1">26 апреля 2026</div>
         <div class="divider-line"></div>
         <div class="hero-location animate-item delay-2">
-            <strong>Маргилан</strong><br>
-            улица Мустакиллик, 663
+            <strong>Фергана</strong><br>
+            улица А. Мухаммадиева, 61
         </div>
         <div class="scroll-hint animate-item delay-3" id="scrollHint">✦ листайте вниз ✦</div>
     </div>
@@ -415,17 +415,18 @@
         </div>
     </div>
 
-    <!-- ЛОКАЦИЯ -->
+    <!-- ЛОКАЦИЯ (новый адрес и ссылка) -->
     <div class="section location-block fade-on-scroll">
         <div class="section-title">Локация</div>
         <p style="font-size: 16px;">Ждем вас по адресу:</p>
-        <div class="resto-name">Ресторан “Маргилан Сай”</div>
-        <div class="address-detail">Узбекистан, город Маргилан, улица Мустакиллик, 663</div>
+        <div class="resto-name">Ресторан “Маргилон Сой”</div>
+        <div class="address-detail">Узбекистан, город Маргилан, улица А. Мухаммадиева, 61</div>
         <div class="divider-line" style="margin: 1.2rem auto;"></div>
-        <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>15:00</strong> <span class="heart">❤</span></p>
+        <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>14:45</strong> <span class="heart">❤</span></p>
         
-        <a href="https://yandex.ru/maps/?text=Узбекистан%2C%20Маргилан%2C%20улица%20Мустакиллик%2C%20663&mode=routes" target="_blank" rel="noopener noreferrer" class="map-button">
-            🗺️ Проложить маршрут в Яндекс.Картах
+        <!-- Обновленная ссылка на Яндекс.Карты с правильными координатами и организацией -->
+        <a href="https://yandex.ru/maps/org/margilon_soy/244911125045/?ll=71.781707%2C40.391405&z=16&mode=routes" target="_blank" rel="noopener noreferrer" class="map-button">
+             Проложить маршрут 
         </a>
     </div>
 
@@ -433,19 +434,19 @@
     <div class="section fade-on-scroll">
         <div class="section-title">План дня</div>
         <div class="timeline-item">
-            <div class="timeline-time">15:30</div>
+            <div class="timeline-time">15:00</div>
             <div class="timeline-desc">Торжественная церемония <small>Не исключено, что вам потребуются платочки для этого трогательного момента</small></div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-time">17:30</div>
+            <div class="timeline-time">17:00</div>
             <div class="timeline-desc">Свадебный ужин <small>Вкусные блюда и веселая программа от ведущего</small></div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-time">21:30</div>
+            <div class="timeline-time">21:00</div>
             <div class="timeline-desc">Торт <small>Обещаем, торт продавать мы не будем</small></div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-time">22:30</div>
+            <div class="timeline-time">22:00</div>
             <div class="timeline-desc">Завершение вечера <small>Даже такая вечеринка может закончиться</small></div>
         </div>
     </div>
@@ -469,14 +470,14 @@
                 <span class="timer-unit">0 часов</span>
                 <span class="timer-unit">0 минут</span>
             </div>
-            <div style="margin-top: 0.8rem;">💒 ДО ВСТРЕЧИ В МАРГИЛАНЕ! 💒</div>
+            <div style="margin-top: 0.8rem;">💒 ДО ВСТРЕЧИ! 💒</div>
         </div>
     </div>
 
-    <!-- ФУТЕР - теперь с правильным классом fade-on-scroll и гарантированным появлением -->
+    <!-- ФУТЕР -->
     <div class="footer fade-on-scroll">
         Бунёд & Фарзона<br>
-        Ждем вас 26 апреля 2026, Маргилан, 15:00
+        <!-- Ждем вас 26 апреля 2026, Маргилан, 15:00 -->
     </div>
 </div>
 
@@ -566,25 +567,22 @@
         });
     }
 
-    // АНИМАЦИЯ ПРИ СКРОЛЛЕ: улучшенная версия с Intersection Observer для надёжности
+    // АНИМАЦИЯ ПРИ СКРОЛЛЕ: Intersection Observer
     const fadeElements = document.querySelectorAll('.fade-on-scroll');
-    
-    // Используем Intersection Observer для более точного отслеживания
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Можно продолжать наблюдать, но чтобы не тратить ресурсы, отключаем после появления
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
     
     fadeElements.forEach(el => {
         observer.observe(el);
     });
     
-    // Также на всякий случай дублируем старым методом для футера
+    // Фолбэк на всякий случай
     function checkVisibilityFallback() {
         fadeElements.forEach(el => {
             const rect = el.getBoundingClientRect();
@@ -594,7 +592,6 @@
             }
         });
     }
-    
     window.addEventListener('load', checkVisibilityFallback);
     window.addEventListener('scroll', checkVisibilityFallback);
     setTimeout(checkVisibilityFallback, 300);
