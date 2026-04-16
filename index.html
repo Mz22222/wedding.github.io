@@ -397,18 +397,18 @@
         </div>
     </div>
 
-    <!-- ЛОКАЦИЯ (убран текст про банкетный зал, добавлена кнопка маршрута) -->
+    <!-- ЛОКАЦИЯ (адрес на русском, кнопка Яндекс.Карт) -->
     <div class="section location-block">
         <div class="section-title">Локация</div>
         <p style="font-size: 16px;">Ждем вас по адресу:</p>
         <div class="resto-name">Ресторан “Маргилан Сай”</div>
-        <div class="address-detail">Маргилан, улица Мустакиллик, 663</div>
+        <div class="address-detail">Узбекистан, город Маргилан, улица Мустакиллик, 663</div>
         <div class="divider-line" style="margin: 1.2rem auto;"></div>
         <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>15:00</strong> <span class="heart">❤</span></p>
         
-        <!-- Кнопка "Проложить маршрут" -->
-        <a href="https://maps.google.com/?q=Маргилан,+улица+Мустакиллик,+663" target="_blank" rel="noopener noreferrer" class="map-button">
-            🗺️ Проложить маршрут
+        <!-- Кнопка "Проложить маршрут" - открывает Яндекс.Карты с адресом на русском -->
+        <a href="https://yandex.ru/maps/?text=Узбекистан%2C%20Маргилан%2C%20улица%20Мустакиллик%2C%20663&mode=routes" target="_blank" rel="noopener noreferrer" class="map-button">
+             Проложить маршрут 
         </a>
     </div>
 
@@ -454,7 +454,6 @@
             </div>
             <div style="margin-top: 0.8rem;">💒 ДО ВСТРЕЧИ В МАРГИЛАНЕ! 💒</div>
         </div>
-        <!-- Убран текст про символ любви -->
     </div>
 
     <div class="footer">
@@ -519,7 +518,6 @@
             return;
         }
 
-        // расчёт дней, часов, минут (без месяцев)
         const totalSeconds = Math.floor(diff / 1000);
         const days = Math.floor(totalSeconds / (3600 * 24));
         const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
