@@ -27,12 +27,12 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.02);
         }
 
+        /* Убраны border-bottom между секциями */
         .section {
             padding: 2.5rem 2rem;
-            border-bottom: 1px solid #eae6e0;
         }
         .section:last-child {
-            border-bottom: none;
+            padding-bottom: 2.5rem;
         }
 
         .section-title {
@@ -125,7 +125,7 @@
             color: #8f7a64;
         }
 
-        /* КАЛЕНДАРЬ - как на скриншоте, но адаптивный */
+        /* КАЛЕНДАРЬ */
         .calendar-wrap {
             max-width: 320px;
             margin: 0 auto;
@@ -200,7 +200,6 @@
             align-items: center;
             justify-content: center;
         }
-        /* подпись под календарем */
         .calendar-caption {
             text-align: center;
             margin-top: 12px;
@@ -209,7 +208,7 @@
             color: #9f8b74;
         }
 
-        /* остальные блоки */
+        /* локация */
         .location-block {
             text-align: center;
         }
@@ -218,6 +217,12 @@
             font-weight: 500;
             margin: 0.5rem 0;
         }
+        .address-detail {
+            font-size: 16px;
+            margin-top: 0.3rem;
+        }
+
+        /* план дня */
         .timeline-item {
             display: flex;
             align-items: baseline;
@@ -244,73 +249,32 @@
             color: #6b6b6b;
             display: block;
         }
-        .dresscode-palette {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin: 1.2rem 0;
-            flex-wrap: wrap;
+
+        /* НОВЫЙ БЛОК ДРЕСС-КОД — как на скриншоте, с элегантным текстом */
+        .dresscode-textblock {
+            background: #fefaf5;
+            padding: 1.8rem 1.5rem;
+            margin: 0.5rem 0;
+            border-left: 3px solid #d4c5b2;
+            font-size: 17px;
+            line-height: 1.5;
+            color: #2b2b2b;
+            font-family: 'Cormorant Garamond', serif;
         }
-        .color-chip {
-            width: 48px;
-            height: 48px;
-            border-radius: 0;
+        .dresscode-textblock p {
+            margin-bottom: 0.8rem;
         }
-        .detail-card {
-            background: #fcfaf7;
-            padding: 1.2rem;
-            margin: 1rem 0;
-            text-align: center;
-            border-left: 2px solid #d4cdc0;
+        .dresscode-textblock p:last-child {
+            margin-bottom: 0;
         }
-        .form-group {
-            margin-bottom: 1.3rem;
-        }
-        label {
-            font-size: 14px;
+        .white-dress-note {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: #b1573f;
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: block;
-            margin-bottom: 6px;
-            color: #1e1e1e;
         }
-        input, select {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #cccccc;
-            border-radius: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 16px;
-            background: white;
-        }
-        .radio-group {
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        }
-        .radio-group label {
-            font-weight: normal;
-            text-transform: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        button {
-            background: #000000;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            width: 100%;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        button:hover {
-            background: #2c2c2c;
-        }
+
+        /* таймер */
         .timer-box {
             background: #fefaf5;
             padding: 1.2rem;
@@ -334,12 +298,8 @@
             text-align: center;
             padding: 2rem;
             font-size: 12px;
-            border-top: 1px solid #eae6e0;
+            border-top: none;
             color: #7a6e60;
-        }
-        .red-text {
-            color: #b34e3a;
-            font-weight: 500;
         }
         .heart {
             font-size: 1.2rem;
@@ -360,6 +320,10 @@
             .hero-frame {
                 margin: 1rem;
                 padding: 1rem;
+            }
+            .dresscode-textblock {
+                padding: 1.2rem;
+                font-size: 16px;
             }
         }
         .animate-item {
@@ -395,8 +359,7 @@
         <div class="scroll-hint animate-item delay-3" id="scrollHint">✦ листайте вниз ✦</div>
     </div>
 
-
-       <!-- Дорогие гости! текст -->
+    <!-- Дорогие гости! текст -->
     <div class="section">
         <div class="section-title">Дорогие гости!</div>
         <p class="text-center" style="font-size: 17px; line-height: 1.45;">Мы счастливы пригласить вас на самый важный день в нашей жизни — нашу свадьбу!<br><br>В этот день мы хотим быть в окружении самых близких и дорогих людей.</p>
@@ -404,8 +367,7 @@
         <p class="text-center" style="font-size: 16px;">Надеемся, что вы примете наше приглашение, будем вас ждать!</p>
     </div>
 
-    
-    <!-- КАЛЕНДАРЬ С ВЫДЕЛЕННОЙ ДАТОЙ (апрель 2026, 26 число) -->
+    <!-- КАЛЕНДАРЬ С ВЫДЕЛЕННОЙ ДАТОЙ -->
     <div class="section">
         <div class="section-title">Дата нашей свадьбы</div>
         <div class="calendar-wrap">
@@ -413,16 +375,12 @@
             <div class="calendar-weekdays">
                 <span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span>
             </div>
-            <div class="calendar-days" id="dynamicCalendar">
-                <!-- дни будут заполнены скриптом -->
-            </div>
-            <div class="calendar-caption"> 26 апреля — наш особенный день </div>
+            <div class="calendar-days" id="dynamicCalendar"></div>
+            <div class="calendar-caption">26 апреля — наш особенный день</div>
         </div>
     </div>
 
- 
-
-    <!-- ЛОКАЦИЯ (Маргилан, без Узбекистана) -->
+    <!-- ЛОКАЦИЯ -->
     <div class="section location-block">
         <div class="section-title">Локация</div>
         <p style="font-size: 16px;">Ждем вас по адресу:</p>
@@ -430,7 +388,7 @@
         <div class="address-detail">Маргилан, улица Мустакиллик, 663</div>
         <div class="address-detail" style="font-size: 14px; margin-top: 5px;">(Банкетный зал «Националь»)</div>
         <div class="divider-line" style="margin: 1.2rem auto;"></div>
-        <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>15:00</strong> <span class="heart">❤</span></p>
+        <p style="margin-top: 0.7rem; font-size: 15px;"> Сбор гостей в <strong>15:00</strong></p>
     </div>
 
     <!-- ПРОГРАММА ДНЯ -->
@@ -454,70 +412,15 @@
         </div>
     </div>
 
-    <!-- ДРЕСС-КОД -->
+    <!-- НОВЫЙ ДРЕСС-КОД: текст как на скриншоте, без палитры и без цветных блоков -->
     <div class="section">
         <div class="section-title">Дресс-код</div>
-        <p class="text-center">Мы будем рады видеть вас в любом наряде, но нам будет еще приятнее, если вы поддержите общую гамму нашего торжества.</p>
-        <div class="dresscode-palette">
-            <div class="color-chip" style="background: #eadbc6;"></div>
-            <div class="color-chip" style="background: #c7b198;"></div>
-            <div class="color-chip" style="background: #9c7e64;"></div>
-            <div class="color-chip" style="background: #6a4e36;"></div>
-            <div class="color-chip" style="background: #f3ede4;"></div>
+        <div class="dresscode-textblock">
+            <p>Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!</p>
+            <p>Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами, в которых вам будет комфортно.</p>
+            <p>Не забывайте, что свадьба будет на природе, подумайте об удобной обуви.</p>
+            <p class="white-dress-note">Девушки, я бы очень хотела, чтобы белый цвет в этот день был только моим цветом.</p>
         </div>
-        <div class="text-center">
-            <div><u>Девушки</u>: вечерние и коктейльные платья в тёплых оттенках</div>
-            <div style="margin: 0.5rem 0;"><u>Мужчины</u>: костюм или рубашка + брюки, элегантный стиль</div>
-        </div>
-    </div>
-
-    <!-- ДЕТАЛИ -->
-    <div class="section">
-        <div class="section-title">Детали</div>
-        <div class="detail-card">
-            <span class="heart">💗</span> Обратите внимание, что формат мероприятия не предполагает детской площадки и аниматоров. Пожалуйста, позаботьтесь о том, чтобы провести этот вечер <strong>без детей</strong>.
-        </div>
-        <div class="detail-card">
-            <span class="heart">📖</span> Мы будем рады, если вместо цветов вы подарите нам вашу <strong>любимую книгу</strong> для нашей семейной библиотеки. <span class="heart">💗</span>
-        </div>
-        <div class="detail-card">
-            <span class="heart">🙏</span> От всего сердца просим вас воздержаться от криков <strong class="red-text">“ГОРЬКО!”</strong> и сохранить атмосферу уютного семейного праздника.
-        </div>
-    </div>
-
-    <!-- АНКЕТА ГОСТЯ -->
-    <div class="section">
-        <div class="section-title">Анкета гостя</div>
-        <p class="text-center" style="margin-bottom: 1.2rem; font-size: 15px;">Пожалуйста, подтвердите ваше присутствие на нашем празднике <strong>до 01 июня 2025 года</strong> и ответьте на несколько вопросов.</p>
-        <form id="weddingRSVP">
-            <div class="form-group">
-                <label>Ваше имя (гости)</label>
-                <input type="text" id="guestName" placeholder="Например: Бунёд и Фарзона, или ваша семья" required>
-            </div>
-            <div class="form-group">
-                <label>Вы будете на свадьбе?</label>
-                <div class="radio-group">
-                    <label><input type="radio" name="attending" value="Да, с радостью!" checked> Да, с радостью!</label>
-                    <label><input type="radio" name="attending" value="К сожалению, нет"> К сожалению, нет</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Предпочтения по еде</label>
-                <select id="foodPref">
-                    <option value="Курица">Курица</option>
-                    <option value="Рыба">Рыба</option>
-                    <option value="Мясо">Мясо</option>
-                    <option value="Вегетарианское">Вегетарианское</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Пожелания по алкоголю / комментарий</label>
-                <input type="text" id="alcoholComment" placeholder="Напишите предпочтения или аллергии">
-            </div>
-            <button type="submit">Отправить</button>
-            <p class="text-center" style="font-size: 12px; margin-top: 10px;">💗 Спасибо, что разделите с нами этот день 💗</p>
-        </form>
-        <div id="formStatus" style="text-align: center; margin-top: 12px; font-size: 14px; color: #b1573f;"></div>
     </div>
 
     <!-- ТАЙМЕР -->
@@ -542,35 +445,30 @@
 </div>
 
 <script>
-    // ---- ГЕНЕРАТОР КАЛЕНДАРЯ для АПРЕЛЯ 2026 с выделением 26 числа ----
+    // ---- КАЛЕНДАРЬ для АПРЕЛЯ 2026 с выделением 26 числа ----
     function buildApril2026Calendar() {
         const container = document.getElementById('dynamicCalendar');
         if (!container) return;
         
         const year = 2026;
-        const month = 3; // апрель = 3 (0-индекс)
+        const month = 3; // апрель
         const highlightDay = 26;
         
         const firstDayOfMonth = new Date(year, month, 1);
-        let startWeekday = firstDayOfMonth.getDay(); // 0 = воскресенье, но в календаре ПН первый
-        // преобразуем: если воскресенье (0) -> 6, иначе сдвиг (пн=1 -> 0)
+        let startWeekday = firstDayOfMonth.getDay();
         let startOffset = (startWeekday === 0) ? 6 : startWeekday - 1;
         
         const daysInMonth = new Date(year, month + 1, 0).getDate();
-        
-        // дни предыдущего месяца (март 2026)
         const prevMonthDate = new Date(year, month, 0);
         const daysInPrev = prevMonthDate.getDate();
         
         let calendarHTML = '';
         
-        // заполняем пустые ячейки предыдущего месяца
         for (let i = 0; i < startOffset; i++) {
             let prevDay = daysInPrev - startOffset + i + 1;
             calendarHTML += `<div class="calendar-day other-month"><span class="day-number">${prevDay}</span></div>`;
         }
         
-        // текущий месяц
         for (let d = 1; d <= daysInMonth; d++) {
             const isHighlight = (d === highlightDay);
             if (isHighlight) {
@@ -580,7 +478,6 @@
             }
         }
         
-        // добавим дни следующего месяца для заполнения сетки (чтобы было 6 строк)
         const totalCells = Math.ceil((startOffset + daysInMonth) / 7) * 7;
         const remaining = totalCells - (startOffset + daysInMonth);
         for (let i = 1; i <= remaining; i++) {
@@ -635,24 +532,6 @@
     }
     updateWeddingTimer();
     setInterval(updateWeddingTimer, 60000);
-
-    // ФОРМА
-    const form = document.getElementById('weddingRSVP');
-    const statusDiv = document.getElementById('formStatus');
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('guestName').value.trim();
-        const attending = document.querySelector('input[name="attending"]:checked').value;
-        const food = document.getElementById('foodPref').value;
-        const alcohol = document.getElementById('alcoholComment').value;
-        if (!name) {
-            statusDiv.innerHTML = '💗 Пожалуйста, укажите ваше имя 💗';
-            return;
-        }
-        statusDiv.innerHTML = `✨ Спасибо, ${name}! Вы ответили: "${attending}". Предпочтение: ${food}. ${alcohol ? 'Комментарий: ' + alcohol : ''} ✨<br>С нетерпением ждём встречи в Маргилане!`;
-        form.reset();
-        setTimeout(() => { if (statusDiv.innerHTML.includes('Спасибо')) {} }, 200);
-    });
 
     // плавный скролл
     document.getElementById('scrollHint')?.addEventListener('click', () => {
