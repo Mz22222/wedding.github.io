@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Приглашение на свадьбу | Бунёд & Фарзона</title>
-    <!-- Fonts: Garamond / Cormorant как в шаблоне -->
+    <!-- Fonts: Garamond / Cormorant как в шаблоне (элегантный, винтажный) -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -20,7 +20,6 @@
             line-height: 1.4;
         }
 
-        /* основной контейнер — имитация карточки 320px на мобильном, но адаптив */
         .container {
             max-width: 620px;
             margin: 0 auto;
@@ -28,7 +27,7 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.02);
         }
 
-        /* каждая секция — белая на белом, как в шаблоне */
+        /* секции */
         .section {
             padding: 2.5rem 2rem;
             border-bottom: 1px solid #eae6e0;
@@ -37,7 +36,6 @@
             border-bottom: none;
         }
 
-        /* заголовки как в шаблоне: Garamond, uppercase, тонкий, 24px */
         .section-title {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 400;
@@ -49,72 +47,95 @@
             text-transform: uppercase;
         }
 
-        /* текст с анимацией, как в оригинале */
         .text-center {
             text-align: center;
         }
 
-        /* главный экран — save the date стиль */
-        .hero {
+        /* === НОВЫЙ ГЛАВНЫЙ ЭКРАН с фото, рамкой и именем === */
+        .hero-frame {
             background: #ffffff;
-            padding: 3rem 1.5rem 2rem;
+            padding: 2rem 1.5rem 2rem;
             text-align: center;
             position: relative;
+            border: 12px double #d4c5b2;   /* элегантная двойная рамка как на скриншоте */
+            margin: 1rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
         }
-        .hero-save {
-            font-size: 12px;
-            letter-spacing: 4px;
+        .hero-image {
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto 1.2rem;
+            display: block;
+            border-radius: 0px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            filter: sepia(0.05) contrast(1.02);
+        }
+        /* альтернативный стиль, если фото не загрузится — монохромный фон */
+        .hero-image-placeholder {
+            background: #ece3d8;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #8b7a66;
             text-transform: uppercase;
-            color: #8b8b8b;
-            margin-bottom: 1rem;
         }
+
         .hero-names {
-            font-size: 52px;
+            font-size: 48px;
             font-weight: 500;
             font-family: 'Cormorant Garamond', serif;
             line-height: 1.2;
-            margin: 0.75rem 0;
-            color: #000;
+            margin: 0.75rem 0 0.25rem;
+            color: #2c221b;
+            letter-spacing: 1px;
+        }
+        .hero-names span {
+            font-size: 44px;
         }
         .hero-date {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 400;
             letter-spacing: 2px;
-            margin: 1rem 0 0.5rem;
+            margin: 0.5rem 0 0.2rem;
+            color: #5f4c38;
         }
-        .hero-date-numbers {
-            font-size: 48px;
-            font-weight: 500;
-            letter-spacing: 6px;
-            margin: 0.25rem 0;
-        }
-        .hero-sub {
-            font-size: 14px;
+        .hero-location {
+            font-size: 16px;
             text-transform: uppercase;
-            color: #4a4a4a;
-            margin-top: 1rem;
+            letter-spacing: 1px;
+            margin: 0.8rem 0;
+            font-weight: 400;
+        }
+        .hero-location strong {
+            font-weight: 600;
+        }
+        .divider-line {
+            width: 50px;
+            height: 1px;
+            background: #c7b59e;
+            margin: 0.8rem auto;
         }
         .scroll-hint {
-            margin-top: 2rem;
+            margin-top: 1rem;
             font-size: 10px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-decoration: underline;
             cursor: pointer;
+            color: #8f7a64;
         }
 
-        /* декоративные линии как в шаблоне */
-        .divider-line {
-            width: 60px;
-            height: 1px;
-            background: #000;
-            margin: 1rem auto;
-        }
-        .divider-line-light {
-            background: #ccc;
-            width: 40px;
-        }
-
-        /* информация о месте */
+        /* прочие блоки */
         .location-block {
             text-align: center;
         }
@@ -123,13 +144,10 @@
             font-weight: 500;
             margin: 0.5rem 0;
         }
-        .address {
+        .address-detail {
             font-size: 16px;
-            color: #2e2e2e;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
         }
-
-        /* план дня (таймлайн) */
         .timeline-item {
             display: flex;
             align-items: baseline;
@@ -156,8 +174,6 @@
             color: #6b6b6b;
             display: block;
         }
-
-        /* дресс-код с палитрой */
         .dresscode-palette {
             display: flex;
             justify-content: center;
@@ -169,18 +185,7 @@
             width: 48px;
             height: 48px;
             border-radius: 0;
-            background: #e6dfd3;
         }
-        .dresscode-text {
-            font-size: 16px;
-            text-align: center;
-            margin-top: 1rem;
-        }
-        .dresscode-note {
-            margin: 0.5rem 0;
-        }
-
-        /* детали: книги, без горько, без детей */
         .detail-card {
             background: #fcfaf7;
             padding: 1.2rem;
@@ -188,8 +193,6 @@
             text-align: center;
             border-left: 2px solid #d4cdc0;
         }
-
-        /* форма анкеты (как в шаблоне) */
         .form-group {
             margin-bottom: 1.3rem;
         }
@@ -234,13 +237,10 @@
             letter-spacing: 1px;
             cursor: pointer;
             transition: 0.2s;
-            margin-top: 0.5rem;
         }
         button:hover {
             background: #2c2c2c;
         }
-
-        /* таймер */
         .timer-box {
             background: #fefaf5;
             padding: 1.2rem;
@@ -260,8 +260,6 @@
             padding: 0.2rem 0.8rem;
             border: 1px solid #e0d8cf;
         }
-
-        /* footer */
         .footer {
             text-align: center;
             padding: 2rem;
@@ -269,23 +267,6 @@
             border-top: 1px solid #eae6e0;
             color: #7a6e60;
         }
-
-        @media (max-width: 550px) {
-            .section {
-                padding: 1.8rem 1.2rem;
-            }
-            .hero-names {
-                font-size: 38px;
-            }
-            .hero-date-numbers {
-                font-size: 36px;
-            }
-            .timeline-desc {
-                max-width: 60%;
-            }
-        }
-
-        /* сердечки и красный акцент */
         .red-text {
             color: #b34e3a;
             font-weight: 500;
@@ -296,10 +277,21 @@
             margin: 0 4px;
             color: #b1573f;
         }
-        u {
-            text-decoration-thickness: 1px;
+        @media (max-width: 550px) {
+            .section {
+                padding: 1.8rem 1.2rem;
+            }
+            .hero-names {
+                font-size: 38px;
+            }
+            .timeline-desc {
+                max-width: 60%;
+            }
+            .hero-frame {
+                margin: 1rem;
+                padding: 1rem;
+            }
         }
-        /* анимация fadeinup как в шаблоне */
         .animate-item {
             opacity: 0;
             transform: translateY(20px);
@@ -314,42 +306,49 @@
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- Hero-секция: Save the Date + имена, дата как в шаблоне -->
-    <div class="hero">
-        <div class="hero-save animate-item">save the date</div>
-        <div class="hero-names animate-item delay-1">Бунёд & Фарзона</div>
-        <div class="hero-date animate-item delay-2">приглашают вас на свадьбу</div>
-        <div class="hero-date-numbers animate-item delay-3">26.04.2026</div>
+    <!-- ГЛАВНЫЙ ЭКРАН: фото, рамка, имена как на скриншоте АЛЕКСЕЙ / КСЕНИЯ стиль но с нашими именами -->
+    <div class="hero-frame">
+        <!-- Фото: используем указанную ссылку с Pinterest (или красивая заглушка с вензелями) -->
+        <div class="hero-image" id="heroImageContainer">
+            <img id="weddingPhoto" src="https://i.pinimg.com/1200x/78/28/e7/7828e702e8bc8ac3a45d110ca5872ecf.jpg" alt="Бунёд и Фарзона" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'hero-image-placeholder\'>✨ Бунёд &amp; Фарзона ✨<br>26.04.2026</div>';">
+        </div>
+        <div class="hero-names animate-item">Бунёд <span style="font-family: serif;">&</span> Фарзона</div>
+        <div class="hero-date animate-item delay-1">26 апреля 2026</div>
         <div class="divider-line"></div>
-        <div class="hero-sub animate-item">Санкт-Петербург · 15:00</div>
-        <div class="scroll-hint" id="scrollHint">✦ листайте вниз ✦</div>
+        <div class="hero-location animate-item delay-2">
+            <strong>Маргилан, Узбекистан</strong><br>
+            ул. Мустакиллик, 663
+        </div>
+        <div class="scroll-hint animate-item delay-3" id="scrollHint">✦ листайте вниз ✦</div>
     </div>
 
-    <!-- Дорогие гости! текст (как в новом шаблоне) -->
+    <!-- Дорогие гости! текст (стиль как в предыдущих версиях) -->
     <div class="section">
         <div class="section-title">Дорогие гости!</div>
         <p class="text-center" style="font-size: 17px; line-height: 1.45;">Мы счастливы пригласить вас на самый важный день в нашей жизни — нашу свадьбу!<br><br>В этот день мы хотим быть в окружении самых близких и дорогих людей.</p>
-        <div class="divider-line divider-line-light" style="margin: 1.2rem auto;"></div>
+        <div class="divider-line" style="margin: 1.2rem auto; background: #c7b59e;"></div>
         <p class="text-center" style="font-size: 16px;">Надеемся, что вы примете наше приглашение, будем вас ждать!</p>
     </div>
 
-    <!-- Локация -->
+    <!-- ЛОКАЦИЯ (Узбекистан, Маргилан) -->
     <div class="section location-block">
         <div class="section-title">Локация</div>
         <p style="font-size: 16px;">Ждем вас по адресу:</p>
         <div class="resto-name">Ресторан “Маргилан Сай”</div>
-        <div class="address">Санкт-Петербург, Приморское шоссе, 452А<br> (Ресторан "Русская Рыбалка" по документам, ориентир – Маргилан Сай)</div>
-        <div class="divider-line divider-line-light" style="margin-top: 1.2rem;"></div>
-        <p style="margin-top: 0.7rem; font-size: 14px;"><span class="heart">❤</span> Сбор гостей в <strong>15:00</strong> <span class="heart">❤</span></p>
+        <div class="address-detail">Узбекистан, г. Маргилан, улица Мустакиллик, 663</div>
+        <div class="address-detail" style="font-size: 14px; margin-top: 5px;">(Банкетный зал «Националь» / зал торжеств)</div>
+        <div class="divider-line" style="margin: 1.2rem auto;"></div>
+        <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>15:00</strong> <span class="heart">❤</span></p>
     </div>
 
-    <!-- Программа / План дня как в шаблоне -->
+    <!-- ПРОГРАММА ДНЯ (план) -->
     <div class="section">
-        <div class="section-title">Программа дня</div>
+        <div class="section-title">План дня</div>
         <div class="timeline-item">
             <div class="timeline-time">15:30</div>
             <div class="timeline-desc">Торжественная церемония <small>Не исключено, что вам потребуются платочки для этого трогательного момента</small></div>
@@ -364,28 +363,28 @@
         </div>
         <div class="timeline-item">
             <div class="timeline-time">22:30</div>
-            <div class="timeline-desc">Завершение вечера <small>Надеемся, что наш праздник запомнится вам</small></div>
+            <div class="timeline-desc">Завершение вечера <small>Даже такая вечеринка может закончиться</small></div>
         </div>
     </div>
 
-    <!-- Дресс-код + цветовая гамма (как в шаблоне, но с палитрой) -->
+    <!-- ДРЕСС-КОД и цветовая палитра -->
     <div class="section">
         <div class="section-title">Дресс-код</div>
         <p class="text-center">Мы будем рады видеть вас в любом наряде, но нам будет еще приятнее, если вы поддержите общую гамму нашего торжества.</p>
         <div class="dresscode-palette">
-            <div class="color-chip" style="background: #EADBC6;"></div>
-            <div class="color-chip" style="background: #C7B198;"></div>
-            <div class="color-chip" style="background: #9C7E64;"></div>
-            <div class="color-chip" style="background: #6A4E36;"></div>
-            <div class="color-chip" style="background: #F3EDE4;"></div>
+            <div class="color-chip" style="background: #eadbc6;"></div>
+            <div class="color-chip" style="background: #c7b198;"></div>
+            <div class="color-chip" style="background: #9c7e64;"></div>
+            <div class="color-chip" style="background: #6a4e36;"></div>
+            <div class="color-chip" style="background: #f3ede4;"></div>
         </div>
-        <div class="dresscode-text">
+        <div class="text-center">
             <div><u>Девушки</u>: вечерние и коктейльные платья в тёплых оттенках</div>
-            <div class="dresscode-note"><u>Мужчины</u>: костюм или рубашка + брюки, элегантный стиль</div>
+            <div style="margin: 0.5rem 0;"><u>Мужчины</u>: костюм или рубашка + брюки, элегантный стиль</div>
         </div>
     </div>
 
-    <!-- Детали: без детей, книги вместо цветов, без "ГОРЬКО" -->
+    <!-- ДЕТАЛИ: без детей, книги, без горько -->
     <div class="section">
         <div class="section-title">Детали</div>
         <div class="detail-card">
@@ -399,7 +398,7 @@
         </div>
     </div>
 
-    <!-- Анкета гостя (форма) -->
+    <!-- АНКЕТА ГОСТЯ (форма) -->
     <div class="section">
         <div class="section-title">Анкета гостя</div>
         <p class="text-center" style="margin-bottom: 1.2rem; font-size: 15px;">Пожалуйста, подтвердите ваше присутствие на нашем празднике <strong>до 01 июня 2025 года</strong> и ответьте на несколько вопросов.</p>
@@ -434,7 +433,7 @@
         <div id="formStatus" style="text-align: center; margin-top: 12px; font-size: 14px; color: #b1573f;"></div>
     </div>
 
-    <!-- Таймер до свадьбы + сердечки -->
+    <!-- ТАЙМЕР до свадьбы -->
     <div class="section">
         <div class="section-title">Мы станем семьей через...</div>
         <div class="timer-box" id="timerBlock">
@@ -444,21 +443,21 @@
                 <span class="timer-unit">0 часов</span>
                 <span class="timer-unit">0 минут</span>
             </div>
-            <div style="margin-top: 0.8rem;">💒 ДО ВСТРЕЧИ! 💒</div>
+            <div style="margin-top: 0.8rem;">💒 ДО ВСТРЕЧИ В МАРГИЛАНЕ! 💒</div>
         </div>
         <div class="text-center" style="font-style: italic; font-size: 14px;">“Курица + Ласточка” — символ нашей любви</div>
     </div>
 
     <div class="footer">
         Бунёд & Фарзона<br>
-        Ждем вас 26 апреля 2026 в 15:00
+        Ждем вас 26 апреля 2026, Маргилан, 15:00
     </div>
 </div>
 
 <script>
-    // ========== ТАЙМЕР до 26 апреля 2026, 15:00 ==========
+    // ТАЙМЕР до 26 апреля 2026, 15:00
     function updateWeddingTimer() {
-        const weddingDate = new Date(2026, 3, 26, 15, 0, 0); // 26 апреля 2026 15:00
+        const weddingDate = new Date(2026, 3, 26, 15, 0, 0);
         const now = new Date();
         let diff = weddingDate - now;
 
@@ -467,7 +466,6 @@
             return;
         }
 
-        const totalSeconds = Math.floor(diff / 1000);
         const monthsRaw = diff / (1000 * 60 * 60 * 24 * 30.44);
         let months = Math.floor(monthsRaw);
         let afterMonths = new Date(now);
@@ -501,7 +499,7 @@
     updateWeddingTimer();
     setInterval(updateWeddingTimer, 60000);
 
-    // ========== Обработка формы ==========
+    // ФОРМА
     const form = document.getElementById('weddingRSVP');
     const statusDiv = document.getElementById('formStatus');
     form.addEventListener('submit', function(e) {
@@ -510,28 +508,19 @@
         const attending = document.querySelector('input[name="attending"]:checked').value;
         const food = document.getElementById('foodPref').value;
         const alcohol = document.getElementById('alcoholComment').value;
-
         if (!name) {
             statusDiv.innerHTML = '💗 Пожалуйста, укажите ваше имя 💗';
             return;
         }
-        statusDiv.innerHTML = `✨ Спасибо, ${name}! Вы ответили: "${attending}". Предпочтение: ${food}. ${alcohol ? 'Комментарий: ' + alcohol : ''} ✨<br>Мы вас очень ждём!`;
+        statusDiv.innerHTML = `✨ Спасибо, ${name}! Вы ответили: "${attending}". Предпочтение: ${food}. ${alcohol ? 'Комментарий: ' + alcohol : ''} ✨<br>С нетерпением ждём встречи в Маргилане!`;
         form.reset();
-        // небольшая имитация очистки, но оставляем приятное сообщение
-        setTimeout(() => {
-            if (statusDiv.innerHTML.includes('Спасибо')) {
-                // оставим на экране
-            }
-        }, 100);
+        setTimeout(() => { if (statusDiv.innerHTML.includes('Спасибо')) {} }, 200);
     });
 
-    // ========== плавный скролл по хинту ==========
-    document.getElementById('scrollHint').addEventListener('click', function() {
-        window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+    // плавный скролл
+    document.getElementById('scrollHint')?.addEventListener('click', () => {
+        window.scrollBy({ top: window.innerHeight * 0.7, behavior: 'smooth' });
     });
-
-    // Добавляем анимацию при скролле для элементов с классом .animate-item уже сработала при загрузке, но дополнительно можно
-    // простой эффект появления блоков (все уже видно)
 </script>
 </body>
 </html>
