@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Бунёд & Фарзона | Свадьба</title>
+    <title>Бунёд & Фарзона | Приглашение на свадьбу</title>
     <style>
         * {
             margin: 0;
@@ -14,205 +14,221 @@
         body {
             background: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            color: #111;
+            color: #000000;
             line-height: 1.4;
             font-weight: 400;
         }
 
-        .page {
-            max-width: 680px;
+        /* Основной контейнер — узкая колонка, как на карточках */
+        .container {
+            max-width: 620px;
             margin: 0 auto;
             padding: 56px 24px 80px;
         }
 
-        /* Заголовок: дата крупно */
+        /* ЗАГОЛОВОК САЙТА (как на всех скринах: "Сайт-приглашение" сверху) */
+        .site-label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        /* ОСНОВНОЙ ЗАГОЛОВОК */
+        .main-title {
+            font-size: 36px;
+            font-weight: 500;
+            text-align: center;
+            margin: 32px 0 16px;
+            letter-spacing: -0.3px;
+        }
+
+        /* ПОДЗАГОЛОВОК (имена) */
+        .subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            text-align: center;
+            margin: 16px 0 24px;
+            color: #333;
+        }
+
+        /* ДАТА КРУПНО */
         .hero-date {
             font-size: 64px;
-            font-weight: 450;
-            letter-spacing: -1px;
+            font-weight: 500;
             text-align: center;
-            margin-bottom: 48px;
-            color: #000;
+            margin: 40px 0 24px;
+            letter-spacing: -1px;
         }
 
         @media (max-width: 500px) {
             .hero-date {
                 font-size: 48px;
             }
+            .main-title {
+                font-size: 28px;
+            }
         }
 
-        /* Имена */
-        .names {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 400;
-            letter-spacing: -0.5px;
-            margin: 32px 0 24px;
-            text-transform: uppercase;
-        }
-
-        .ampersand {
-            font-size: 24px;
-            margin: 0 8px;
-            font-weight: 300;
-            color: #555;
-        }
-
-        /* Пригласительная строка */
+        /* ПРИГЛАСИТЕЛЬНЫЙ ТЕКСТ */
         .invite-text {
             text-align: center;
-            font-size: 15px;
-            color: #2c2c2c;
-            max-width: 460px;
-            margin: 24px auto;
+            font-size: 16px;
             line-height: 1.5;
-            font-weight: 380;
+            color: #1a1a1a;
+            margin: 32px 0;
         }
 
-        /* Таймер в одну строку */
-        .timer-row {
-            text-align: center;
-            font-size: 20px;
-            font-weight: 450;
-            letter-spacing: 1px;
-            margin: 48px 0 32px;
-            border-top: 0.5px solid #e5e5e5;
-            border-bottom: 0.5px solid #e5e5e5;
-            padding: 24px 0;
-            color: #111;
+        /* РАЗДЕЛИТЕЛЬ (тонкая линия) */
+        .divider {
+            border: none;
+            border-top: 0.5px solid #e0e0e0;
+            margin: 48px 0;
         }
 
-        .timer-row span {
-            margin: 0 4px;
-            white-space: nowrap;
-        }
-
-        /* Секции */
-        .section {
-            margin: 52px 0;
-        }
-
+        /* ЗАГОЛОВКИ СЕКЦИЙ (как на скринах: "ПЛАН ДНЯ", "ДЕТАЛИ", "АНКЕТА") */
         .section-title {
             font-size: 13px;
-            letter-spacing: 1.2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: #aaa;
-            margin-bottom: 20px;
+            color: #999;
+            margin-bottom: 28px;
             text-align: center;
         }
 
-        /* Программа — как на референсе: время + событие */
+        /* ПЛАН ДНЯ — СПИСОК */
         .schedule-item {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            font-size: 16px;
-            margin: 12px 0;
-            flex-wrap: wrap;
+            margin: 32px 0;
             text-align: center;
         }
 
         .schedule-time {
+            font-size: 24px;
             font-weight: 500;
-            min-width: 70px;
-        }
-
-        .schedule-event {
-            color: #333;
-        }
-
-        /* Локация и адрес */
-        .location-name {
-            text-align: center;
-            font-size: 18px;
-            font-weight: 450;
             margin-bottom: 8px;
         }
 
-        .address {
-            text-align: center;
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 16px;
-        }
-
-        .map-link {
-            text-align: center;
-            font-size: 13px;
-            margin-top: 8px;
-        }
-
-        .map-link a {
-            color: #888;
-            text-decoration: none;
-            border-bottom: 0.5px solid #ddd;
-        }
-
-        /* Dress code + хештег */
-        .note-line {
-            text-align: center;
-            font-size: 14px;
-            margin: 16px 0;
-            color: #333;
-        }
-
-        .hashtag {
-            text-align: center;
-            font-size: 14px;
-            letter-spacing: 0.3px;
-            color: #666;
-            margin-top: 16px;
-        }
-
-        /* RSVP форма */
-        .rsvp-box {
-            margin: 48px 0 32px;
-        }
-
-        .rsvp-title {
-            text-align: center;
+        .schedule-desc {
             font-size: 15px;
-            font-weight: 450;
-            margin-bottom: 24px;
-        }
-
-        .rsvp-deadline {
-            text-align: center;
-            font-size: 13px;
-            color: #888;
-            margin-bottom: 28px;
-        }
-
-        form {
-            max-width: 420px;
+            color: #444;
+            max-width: 400px;
             margin: 0 auto;
         }
 
-        input, select, textarea {
+        /* ЛОКАЦИЯ */
+        .location-block {
+            text-align: center;
+            margin: 32px 0;
+        }
+        .location-name {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .address {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 16px;
+        }
+        .map-link a {
+            color: #000;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-size: 14px;
+        }
+
+        /* DRESS CODE / ДЕТАЛИ */
+        .detail-text {
+            text-align: center;
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 20px 0;
+            color: #222;
+        }
+
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 24px 0;
+            flex-wrap: wrap;
+        }
+        .color-dot {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 0.5px solid #ddd;
+        }
+
+        /* АНКЕТА (форма RSVP) */
+        .rsvp-block {
+            margin: 48px 0 32px;
+        }
+
+        .question {
+            margin: 32px 0;
+        }
+
+        .question-text {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .options {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .option input {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .option label {
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        input[type="text"], 
+        input[type="tel"],
+        textarea,
+        select {
             width: 100%;
-            background: #fff;
             border: none;
-            border-bottom: 0.5px solid #ddd;
+            border-bottom: 0.5px solid #ccc;
             padding: 12px 0;
-            margin: 16px 0;
             font-size: 15px;
             font-family: inherit;
             outline: none;
-            transition: border-color 0.2s;
+            background: transparent;
+            margin: 16px 0;
         }
 
-        input:focus, select:focus, textarea:focus {
+        input:focus, textarea:focus, select:focus {
             border-bottom-color: #000;
         }
 
         textarea {
-            min-height: 60px;
+            min-height: 70px;
             resize: vertical;
         }
 
         button {
             background: #000;
-            color: white;
+            color: #fff;
             border: none;
             width: 100%;
             padding: 14px 0;
@@ -220,7 +236,7 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
-            margin: 24px 0 16px;
+            margin: 32px 0 16px;
             font-weight: 400;
         }
 
@@ -232,156 +248,254 @@
             text-align: center;
             font-size: 13px;
             margin-top: 12px;
-            color: #3a3a3a;
+        }
+
+        /* ДО ВСТРЕЧИ (как на скрине) */
+        .farewell {
+            text-align: center;
+            margin: 64px 0 32px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        /* WOW card подпись */
+        .wow-footer {
+            text-align: center;
+            margin-top: 80px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: #bbb;
+            text-transform: uppercase;
         }
 
         hr {
             border: none;
             border-top: 0.5px solid #ececec;
-            margin: 48px 0 24px;
-        }
-
-        footer {
-            text-align: center;
-            font-size: 11px;
-            color: #bbb;
-            margin-top: 40px;
         }
 
         @media (max-width: 480px) {
-            .page {
+            .container {
                 padding: 32px 20px 60px;
             }
-            .timer-row {
-                font-size: 16px;
-                padding: 18px 0;
-            }
-            .schedule-item {
-                gap: 16px;
+            .schedule-time {
+                font-size: 20px;
             }
         }
     </style>
 </head>
 <body>
-<div class="page">
+<div class="container">
 
-    <!-- ДАТА крупно -->
-    <div class="hero-date">
-        26.04.26
-    </div>
+    <!-- Сайт-приглашение (как на всех скринах) -->
+    <div class="site-label">Сайт-приглашение</div>
+
+    <!-- ЗАГОЛОВОК: ПРИГЛАШЕНИЕ НА СВАДЬБУ -->
+    <div class="main-title">ПРИГЛАШЕНИЕ НА СВАДЬБУ</div>
 
     <!-- Имена: Бунёд и Фарзона -->
-    <div class="names">
-        БУНЁД <span class="ampersand">&</span> ФАРЗОНА
-    </div>
+    <div class="subtitle">Бунёд и Фарзона</div>
+
+    <!-- ДАТА крупно -->
+    <div class="hero-date">26 АПРЕЛЯ 2026</div>
 
     <!-- Пригласительный текст -->
     <div class="invite-text">
-        Мы рады сообщить Вам, что 26 апреля 2026 состоится<br>
-        самое главное торжество в нашей жизни — день нашей свадьбы!<br>
-        Приглашаем Вас разделить с нами радость этого незабываемого дня.
+        Дорогие друзья!<br><br>
+        Один день в этом году будет для нас особенным,<br>
+        и мы хотим разделить его с вами.<br><br>
+        Ждем вас на празднике по случаю нашей свадьбы.
     </div>
 
-    <!-- Таймер одной строкой как в примере: 0дней:0часов:0минут:0секунд -->
-    <div class="timer-row" id="timerLine">
-        0дней : 0часов : 0минут : 0секунд
+    <div class="divider"></div>
+
+    <!-- ===== ПЛАН ДНЯ ===== -->
+    <div class="section-title">ПЛАН ДНЯ</div>
+
+    <div class="schedule-item">
+        <div class="schedule-time">14:30</div>
+        <div class="schedule-desc">Сбор гостей</div>
     </div>
 
-    <!-- Программа дня (время как на референсе) -->
-    <div class="section">
-        <div class="section-title">ПРОГРАММА ДНЯ</div>
-        <div class="schedule-item">
-            <div class="schedule-time">14:30</div>
-            <div class="schedule-event">Сбор гостей</div>
-        </div>
-        <div class="schedule-item">
-            <div class="schedule-time">15:00</div>
-            <div class="schedule-event">Церемония бракосочетания</div>
-        </div>
-        <div class="schedule-item">
-            <div class="schedule-time">15:30</div>
-            <div class="schedule-event">Начало банкета</div>
-        </div>
+    <div class="schedule-item">
+        <div class="schedule-time">15:00</div>
+        <div class="schedule-desc">Церемония бракосочетания<br>Не исключено, что вам потребуются платочки для этого трогательного момента</div>
     </div>
 
-    <!-- Локация -->
-    <div class="section">
-        <div class="section-title">ЛОКАЦИЯ</div>
+    <div class="schedule-item">
+        <div class="schedule-time">15:30</div>
+        <div class="schedule-desc">Свадебный ужин<br>Вкусные блюда и веселая программа</div>
+    </div>
+
+    <div class="schedule-item">
+        <div class="schedule-time">21:30</div>
+        <div class="schedule-desc">Торт<br>Обещаем, торт продавать мы не будем ❤️</div>
+    </div>
+
+    <div class="schedule-item">
+        <div class="schedule-time">22:30</div>
+        <div class="schedule-desc">Окончание<br>Даже такая вечеринка может закончиться</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ===== ЛОКАЦИЯ ===== -->
+    <div class="section-title">ЖДЕМ ВАС</div>
+    <div class="location-block">
         <div class="location-name">Ресторан "Маргилан Сай"</div>
         <div class="address">ул. Центральная, 12, Ташкент</div>
-        <div class="map-link">
-            <a href="https://maps.yandex.ru/?text=Маргилан%20Сай%20Ташкент" target="_blank">Открыть карту →</a>
-        </div>
+        <div class="map-link"><a href="https://maps.yandex.ru/?text=Маргилан%20Сай%20Ташкент" target="_blank">Открыть карту →</a></div>
     </div>
 
-    <!-- Dress code (лёгкая рекомендация) -->
-    <div class="note-line">
-        Dress code: элегантный образ (приветствуются светлые тона)
+    <div class="divider"></div>
+
+    <!-- ===== ДРЕСС-КОД ===== -->
+    <div class="section-title">ДРЕСС-КОД</div>
+    <div class="detail-text">
+        Пожалуйста, приходите в красивой одежде, которая соответствует торжественному настроению.<br>
+        Мы будем рады, если вы поддержите цветовую палитру нашей свадьбы:
     </div>
-    <div class="hashtag">
-        #БунёдИФарзона2026
+    <div class="color-palette">
+        <div class="color-dot" style="background: #F5E6D3;"></div>
+        <div class="color-dot" style="background: #D4C4A8;"></div>
+        <div class="color-dot" style="background: #A78E6D;"></div>
+        <div class="color-dot" style="background: #6B4E3A;"></div>
     </div>
 
-    <!-- RSVP блок -->
-    <div class="rsvp-box">
-        <div class="rsvp-title">ПОДТВЕРДИТЕ, ПОЖАЛУЙСТА, СВОЁ ПРИСУТСТВИЕ</div>
-        <div class="rsvp-deadline">Будем ждать ответ до 20 апреля 2026</div>
+    <div class="divider"></div>
 
+    <!-- ===== ДЕТАЛИ (как на скрине) ===== -->
+    <div class="section-title">ДЕТАЛИ</div>
+    <div class="detail-text">
+        ❤️ Обратите внимание, что формат мероприятия не предполагает детской площадки и аниматоров.<br>
+        Пожалуйста, позаботьтесь о том, чтобы провести этот вечер без детей.
+    </div>
+    <div class="detail-text">
+        ❤️ Мы будем рады, если вместо цветов вы подарите нам вашу любимую книгу для нашей семейной библиотеки.
+    </div>
+    <div class="detail-text">
+        ❤️ От всего сердца просим вас воздержаться от криков "Горько!" и сохранить атмосферу уютного семейного праздника.
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ===== АНКЕТА (RSVP) ===== -->
+    <div class="section-title">АНКЕТА</div>
+    <div class="detail-text" style="margin-bottom: 16px;">
+        Пожалуйста, подтвердите ваше присутствие до <strong>20 апреля 2026</strong>
+    </div>
+
+    <div class="rsvp-block">
         <form id="rsvpForm">
-            <input type="text" id="guestName" placeholder="Ваше имя и фамилия" autocomplete="off">
-            <select id="attending">
-                <option value="yes">Конечно, буду! 🎉</option>
-                <option value="no">К сожалению, не смогу</option>
-            </select>
-            <textarea id="comment" placeholder="Пожелания, вопросы, особые предпочтения..."></textarea>
-            <button type="submit" id="submitBtn">Подтвердить присутствие</button>
+            <!-- Имя -->
+            <input type="text" id="guestName" placeholder="Ваше имя и фамилия" autocomplete="off" required>
+
+            <!-- Вопрос: Вы придете? -->
+            <div class="question">
+                <div class="question-text">Вы придете?</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="attending" value="yes" checked> <span>Да</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="attending" value="no"> <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Предпочтения по еде -->
+            <div class="question">
+                <div class="question-text">Предпочтения по еде</div>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="food" value="Курица"> Курица</label>
+                    <label class="option"><input type="checkbox" name="food" value="Рыба"> Рыба</label>
+                    <label class="option"><input type="checkbox" name="food" value="Мясо"> Мясо</label>
+                    <label class="option"><input type="checkbox" name="food" value="Вегетарианское"> Вегетарианское</label>
+                </div>
+            </div>
+
+            <!-- Пожелания по алкоголю / комментарий -->
+            <div class="question">
+                <div class="question-text">Пожелания и комментарии</div>
+                <textarea id="comment" placeholder="Аллергии, особые пожелания, вопросы..."></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn">ОТПРАВИТЬ</button>
         </form>
         <div id="statusMsg" class="status"></div>
     </div>
 
-    <hr>
-    <footer>
-        Бунёд & Фарзона<br>
-        Ждём вас в этот важный день
-    </footer>
+    <!-- ДО ВСТРЕЧИ! -->
+    <div class="farewell">
+        ДО ВСТРЕЧИ!
+    </div>
+
+    <!-- WOW card подпись -->
+    <div class="wow-footer">
+        WOW card<br>
+        by Belleza
+    </div>
+
 </div>
 
 <script>
-    // ТАЙМЕР: до 26 апреля 2026 15:00 (формат: 0дней:0часов:0минут:0секунд)
+    // ========== ТАЙМЕР (до 26 апреля 2026) ==========
+    // (можно разместить где угодно, но по стилю — не обязателен. Я добавил для функционала)
+    // Но на скринах таймер был в виде "3 месяца, 12 дней, 21 часов, 50 минут"
+    // Добавим его аккуратно под анкетой, если хотите.
+    // Поскольку в запросе "точь-в-точь" — на ваших скринах таймер был. Добавлю его после футера как опцию.
+    // Но чтобы не нарушать стиль, сделаю его маленьким блоком.
+
+    // На самом деле в скринах был таймер: "Мы станем семьей через... 3 месяца 12 дней 21 часов 50 минут"
+    // Сделаю его под фразой "ДО ВСТРЕЧИ!"
+    const timerDiv = document.createElement('div');
+    timerDiv.style.textAlign = 'center';
+    timerDiv.style.margin = '24px 0 16px';
+    timerDiv.style.fontSize = '14px';
+    timerDiv.style.color = '#666';
+    timerDiv.style.fontFamily = 'monospace';
+    timerDiv.style.letterSpacing = '0.5px';
+    
+    const farewellDiv = document.querySelector('.farewell');
+    farewellDiv.insertAdjacentElement('afterend', timerDiv);
+    
     function updateTimer() {
         const target = new Date(2026, 3, 26, 15, 0, 0);
         const now = new Date();
         const diff = target - now;
-
+        
         if (diff <= 0) {
-            document.getElementById("timerLine").innerHTML = "Свадьба наступила! 🎉";
+            timerDiv.innerHTML = "Мы уже семья! 🎉";
             return;
         }
-
-        const totalSeconds = Math.floor(diff / 1000);
-        const days = Math.floor(totalSeconds / (24 * 3600));
-        const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        const seconds = totalSeconds % 60;
-
-        const timerText = `${days}дней : ${hours}часов : ${minutes}минут : ${seconds}секунд`;
-        document.getElementById("timerLine").innerHTML = timerText;
+        
+        const totalMonths = (target.getFullYear() - now.getFullYear()) * 12 + (target.getMonth() - now.getMonth());
+        const tempDate = new Date(now);
+        tempDate.setMonth(tempDate.getMonth() + totalMonths);
+        let daysLeft = Math.floor((target - tempDate) / (1000 * 60 * 60 * 24));
+        if (daysLeft < 0) daysLeft = 0;
+        
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        
+        timerDiv.innerHTML = `Мы станем семьей через... ${totalMonths} месяцев, ${daysLeft} дней, ${hours} часов, ${minutes} минут`;
     }
-    setInterval(updateTimer, 1000);
     updateTimer();
+    setInterval(updateTimer, 60000);
 
-    // ========== TELEGRAM (вставьте ваши данные) ==========
-    const TELEGRAM_BOT_TOKEN = "ВАШ_ТОКЕН";       // замените на токен от @BotFather
-    const TELEGRAM_CHAT_ID = "ВАШ_CHAT_ID";      // замените на ID от @userinfobot
+    // ========== TELEGRAM (замените на ваши данные) ==========
+    const TELEGRAM_BOT_TOKEN = "ВАШ_ТОКЕН";    // ← вставьте токен от @BotFather
+    const TELEGRAM_CHAT_ID = "ВАШ_CHAT_ID";   // ← вставьте ваш ID от @userinfobot
 
     const form = document.getElementById("rsvpForm");
     const submitBtn = document.getElementById("submitBtn");
     const statusDiv = document.getElementById("statusMsg");
 
-    async function sendToTelegram(name, attending, comment) {
+    async function sendToTelegram(name, attending, foodChoices, comment) {
         const status = attending === "yes" ? "✅ ПРИДЁТ" : "❌ НЕ ПРИДЁТ";
-        const emoji = attending === "yes" ? "🎉" : "";
-        const message = `💒 НОВЫЙ ГОСТЬ\n\nИмя: ${name}\nСтатус: ${status} ${emoji}\nКомментарий: ${comment || "—"}\n\nВремя: ${new Date().toLocaleString("ru-RU")}`;
+        const foodText = foodChoices.length ? foodChoices.join(", ") : "—";
+        const message = `💒 НОВЫЙ ГОСТЬ\n\nИмя: ${name}\nСтатус: ${status}\nЕда: ${foodText}\nКомментарий: ${comment || "—"}\n\nВремя: ${new Date().toLocaleString("ru-RU")}`;
         
         const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
         try {
@@ -406,25 +520,32 @@
             return;
         }
 
-        const attending = document.getElementById("attending").value;
+        const attendingRadio = document.querySelector('input[name="attending"]:checked');
+        const attending = attendingRadio ? attendingRadio.value : "no";
+        
+        const foodCheckboxes = document.querySelectorAll('input[name="food"]:checked');
+        const foodChoices = Array.from(foodCheckboxes).map(cb => cb.value);
+        
         const comment = document.getElementById("comment").value;
 
         submitBtn.disabled = true;
-        submitBtn.innerText = "Отправляю...";
+        submitBtn.innerText = "ОТПРАВЛЯЮ...";
 
-        const ok = await sendToTelegram(name, attending, comment);
+        const ok = await sendToTelegram(name, attending, foodChoices, comment);
 
         if (ok) {
-            statusDiv.innerText = `Спасибо, ${name}! Ваш ответ получен. Ждём вас!`;
+            statusDiv.innerText = `Спасибо, ${name}! Ваш ответ получен. Ждём вас! 🥂`;
             statusDiv.style.color = "#2a6b2a";
             form.reset();
+            // сбросим радио на "Да" по умолчанию
+            document.querySelector('input[name="attending"][value="yes"]').checked = true;
         } else {
-            statusDiv.innerText = "Ошибка отправки. Попробуйте ещё раз или напишите нам лично.";
+            statusDiv.innerText = "❌ Ошибка отправки. Попробуйте ещё раз или напишите нам лично.";
             statusDiv.style.color = "#b55";
         }
 
         submitBtn.disabled = false;
-        submitBtn.innerText = "Подтвердить присутствие";
+        submitBtn.innerText = "ОТПРАВИТЬ";
         setTimeout(() => { statusDiv.innerText = ""; }, 5000);
     });
 </script>
