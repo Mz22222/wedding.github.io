@@ -57,8 +57,8 @@
             text-align: center;
             position: relative;
             border: 1px solid #d4c5b2;
-            margin: 1.5rem;
-            margin-top: 1.8rem;
+            margin: 2rem 1.5rem 1.8rem;  /* увеличил верхний отступ, чтобы рамка была ниже */
+            margin-top: 2.2rem;           /* чуть больше сверху */
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
         .hero-image {
@@ -324,6 +324,18 @@
             margin: 0 4px;
             color: #b1573f;
         }
+        
+        /* АНИМАЦИЯ ПРИ СКРОЛЛЕ */
+        .fade-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 550px) {
             .section {
                 padding: 1.8rem 1.2rem;
@@ -335,7 +347,7 @@
                 max-width: 60%;
             }
             .hero-frame {
-                margin: 1rem;
+                margin: 1.5rem 1rem 1.2rem;
                 padding: 1rem;
             }
             .dresscode-textblock {
@@ -361,7 +373,7 @@
 </head>
 <body>
 <div class="container">
-    <!-- ГЛАВНЫЙ ЭКРАН: фото, одинарная рамка, имена -->
+    <!-- ГЛАВНЫЙ ЭКРАН: фото, одинарная рамка, имена (без анимации скролла, только появление при загрузке) -->
     <div class="hero-frame">
         <div class="hero-image">
             <img src="https://i.pinimg.com/1200x/78/28/e7/7828e702e8bc8ac3a45d110ca5872ecf.jpg" alt="Бунёд и Фарзона" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'hero-image-placeholder\'>✨ Бунёд &amp; Фарзона ✨<br>26.04.2026</div>';">
@@ -377,7 +389,7 @@
     </div>
 
     <!-- Дорогие гости! текст -->
-    <div class="section">
+    <div class="section fade-on-scroll">
         <div class="section-title">Дорогие гости!</div>
         <p class="text-center" style="font-size: 17px; line-height: 1.45;">Мы счастливы пригласить вас на самый важный день в нашей жизни — нашу свадьбу!<br><br>В этот день мы хотим быть в окружении самых близких и дорогих людей.</p>
         <div class="divider-line" style="margin: 1.2rem auto; background: #c7b59e;"></div>
@@ -385,7 +397,7 @@
     </div>
 
     <!-- КАЛЕНДАРЬ С ВЫДЕЛЕННОЙ ДАТОЙ -->
-    <div class="section">
+    <div class="section fade-on-scroll">
         <div class="section-title">Дата нашей свадьбы</div>
         <div class="calendar-wrap">
             <div class="calendar-month">АПРЕЛЬ 2026</div>
@@ -397,54 +409,53 @@
         </div>
     </div>
 
-    <!-- ЛОКАЦИЯ (адрес на русском, кнопка Яндекс.Карт) -->
-    <div class="section location-block">
+    <!-- ЛОКАЦИЯ -->
+    <div class="section location-block fade-on-scroll">
         <div class="section-title">Локация</div>
         <p style="font-size: 16px;">Ждем вас по адресу:</p>
         <div class="resto-name">Ресторан “Маргилан Сай”</div>
         <div class="address-detail">Узбекистан, город Маргилан, улица Мустакиллик, 663</div>
         <div class="divider-line" style="margin: 1.2rem auto;"></div>
-        <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>15:00</strong> <span class="heart">❤</span></p>
+        <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>14:45</strong> <span class="heart">❤</span></p>
         
-        <!-- Кнопка "Проложить маршрут" - открывает Яндекс.Карты с адресом на русском -->
         <a href="https://yandex.ru/maps/?text=Узбекистан%2C%20Маргилан%2C%20улица%20Мустакиллик%2C%20663&mode=routes" target="_blank" rel="noopener noreferrer" class="map-button">
              Проложить маршрут 
         </a>
     </div>
 
     <!-- ПРОГРАММА ДНЯ -->
-    <div class="section">
+    <div class="section fade-on-scroll">
         <div class="section-title">План дня</div>
         <div class="timeline-item">
-            <div class="timeline-time">15:30</div>
+            <div class="timeline-time">15:00</div>
             <div class="timeline-desc">Торжественная церемония <small>Не исключено, что вам потребуются платочки для этого трогательного момента</small></div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-time">17:30</div>
+            <div class="timeline-time">17:00</div>
             <div class="timeline-desc">Свадебный ужин <small>Вкусные блюда и веселая программа от ведущего</small></div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-time">21:30</div>
+            <div class="timeline-time">21:00</div>
             <div class="timeline-desc">Торт <small>Обещаем, торт продавать мы не будем</small></div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-time">22:30</div>
+            <div class="timeline-time">22:00</div>
             <div class="timeline-desc">Завершение вечера <small>Даже такая вечеринка может закончиться</small></div>
         </div>
     </div>
 
     <!-- ДРЕСС-КОД -->
-    <div class="section">
+    <div class="section fade-on-scroll">
         <div class="section-title">Дресс-код</div>
         <div class="dresscode-textblock">
-            <p>Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!</p>
-            <p>Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами, в которых вам будет комфортно.</p>
-            <p class="white-dress-note">Девушки, я бы очень хотела, чтобы белый цвет в этот день был только моим цветом.</p>
+            <p>  Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!</p>
+            <p>  Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами, в которых вам будет комфортно.</p>
+            <p class="white-dress-note">  Девушки, я бы очень хотела, чтобы белый цвет в этот день был только моим цветом.</p>
         </div>
     </div>
 
-    <!-- ТАЙМЕР (только дни, часы, минуты) -->
-    <div class="section">
+    <!-- ТАЙМЕР -->
+    <div class="section fade-on-scroll">
         <div class="section-title">Мы станем семьей через...</div>
         <div class="timer-box">
             <div class="timer-digits" id="timerDisplay">
@@ -456,7 +467,7 @@
         </div>
     </div>
 
-    <div class="footer">
+    <div class="footer fade-on-scroll">
         Бунёд & Фарзона<br>
         Ждем вас 26 апреля 2026, Маргилан, 15:00
     </div>
@@ -507,7 +518,7 @@
     
     buildApril2026Calendar();
     
-    // ТАЙМЕР до 26 апреля 2026, 15:00 (только дни, часы, минуты, без месяцев)
+    // ТАЙМЕР до 26 апреля 2026, 15:00 (только дни, часы, минуты)
     function updateWeddingTimer() {
         const weddingDate = new Date(2026, 3, 26, 15, 0, 0);
         const now = new Date();
@@ -540,10 +551,32 @@
     updateWeddingTimer();
     setInterval(updateWeddingTimer, 60000);
 
-    // плавный скролл
+    // плавный скролл по хинту
     document.getElementById('scrollHint')?.addEventListener('click', () => {
         window.scrollBy({ top: window.innerHeight * 0.7, behavior: 'smooth' });
     });
+
+    // АНИМАЦИЯ ПРИ СКРОЛЛЕ: отслеживаем появление блоков
+    const fadeElements = document.querySelectorAll('.fade-on-scroll');
+    
+    function checkVisibility() {
+        fadeElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            // Если элемент появился в области видимости (с небольшим запасом)
+            if (rect.top < windowHeight - 100 && rect.bottom > 0) {
+                el.classList.add('visible');
+            }
+        });
+    }
+    
+    // Запускаем проверку при загрузке и при скролле
+    window.addEventListener('load', checkVisibility);
+    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('resize', checkVisibility);
+    
+    // Также добавим небольшую задержку, чтобы проверить сразу после рендера
+    setTimeout(checkVisibility, 200);
 </script>
 </body>
 </html>
