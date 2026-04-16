@@ -221,6 +221,23 @@
             font-size: 16px;
             margin-top: 0.3rem;
         }
+        .map-button {
+            display: inline-block;
+            margin-top: 1.2rem;
+            padding: 0.5rem 1.2rem;
+            background: transparent;
+            border: 1px solid #c7b59e;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            color: #5f4c38;
+            text-decoration: none;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .map-button:hover {
+            background: #f5ede3;
+            border-color: #a5886a;
+        }
 
         /* план дня */
         .timeline-item {
@@ -250,7 +267,7 @@
             display: block;
         }
 
-        /* НОВЫЙ БЛОК ДРЕСС-КОД — как на скриншоте, с элегантным текстом */
+        /* БЛОК ДРЕСС-КОД */
         .dresscode-textblock {
             background: #fefaf5;
             padding: 1.8rem 1.5rem;
@@ -380,16 +397,19 @@
         </div>
     </div>
 
-    <!-- ЛОКАЦИЯ -->
+    <!-- ЛОКАЦИЯ (убран текст про банкетный зал, добавлена кнопка маршрута) -->
     <div class="section location-block">
         <div class="section-title">Локация</div>
         <p style="font-size: 16px;">Ждем вас по адресу:</p>
         <div class="resto-name">Ресторан “Маргилан Сай”</div>
         <div class="address-detail">Маргилан, улица Мустакиллик, 663</div>
-        <div class="address-detail" style="font-size: 14px; margin-top: 5px;">(Банкетный зал «Националь»)</div>
         <div class="divider-line" style="margin: 1.2rem auto;"></div>
-        <!-- <p style="margin-top: 0.7rem; font-size: 15px;"> Сбор гостей в <strong>15:00</strong></p> -->
         <p style="margin-top: 0.7rem; font-size: 15px;"><span class="heart">❤</span> Сбор гостей в <strong>15:00</strong> <span class="heart">❤</span></p>
+        
+        <!-- Кнопка "Проложить маршрут" -->
+        <a href="https://maps.google.com/?q=Маргилан,+улица+Мустакиллик,+663" target="_blank" rel="noopener noreferrer" class="map-button">
+            🗺️ Проложить маршрут
+        </a>
     </div>
 
     <!-- ПРОГРАММА ДНЯ -->
@@ -413,30 +433,28 @@
         </div>
     </div>
 
-    <!-- НОВЫЙ ДРЕСС-КОД: текст как на скриншоте, без палитры и без цветных блоков -->
+    <!-- ДРЕСС-КОД -->
     <div class="section">
         <div class="section-title">Дресс-код</div>
         <div class="dresscode-textblock">
-            <p>  Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!</p>
-            <p>  Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами, в которых вам будет комфортно.</p>
-           
-            <p class="white-dress-note">  Девушки, я бы очень хотела, чтобы белый цвет в этот день был только моим цветом.</p>
+            <p>Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!</p>
+            <p>Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами, в которых вам будет комфортно.</p>
+            <p class="white-dress-note">Девушки, я бы очень хотела, чтобы белый цвет в этот день был только моим цветом.</p>
         </div>
     </div>
 
-    <!-- ТАЙМЕР -->
+    <!-- ТАЙМЕР (только дни, часы, минуты) -->
     <div class="section">
         <div class="section-title">Мы станем семьей через...</div>
         <div class="timer-box">
             <div class="timer-digits" id="timerDisplay">
-                <!-- <span class="timer-unit">0 месяцев</span> -->
                 <span class="timer-unit">0 дней</span>
                 <span class="timer-unit">0 часов</span>
                 <span class="timer-unit">0 минут</span>
             </div>
             <div style="margin-top: 0.8rem;">💒 ДО ВСТРЕЧИ В МАРГИЛАНЕ! 💒</div>
         </div>
-        <div class="text-center" style="font-style: italic; font-size: 14px;">“Курица + Ласточка” — символ нашей любви</div>
+        <!-- Убран текст про символ любви -->
     </div>
 
     <div class="footer">
@@ -490,7 +508,7 @@
     
     buildApril2026Calendar();
     
-    // ТАЙМЕР до 26 апреля 2026, 15:00
+    // ТАЙМЕР до 26 апреля 2026, 15:00 (только дни, часы, минуты, без месяцев)
     function updateWeddingTimer() {
         const weddingDate = new Date(2026, 3, 26, 15, 0, 0);
         const now = new Date();
@@ -501,31 +519,21 @@
             return;
         }
 
-        const monthsRaw = diff / (1000 * 60 * 60 * 24 * 30.44);
-        let months = Math.floor(monthsRaw);
-        let afterMonths = new Date(now);
-        afterMonths.setMonth(now.getMonth() + months);
-        let daysRaw = (weddingDate - afterMonths) / (1000 * 60 * 60 * 24);
-        let days = Math.floor(daysRaw);
-        if (days < 0) {
-            months--;
-            afterMonths = new Date(now);
-            afterMonths.setMonth(now.getMonth() + months);
-            days = Math.floor((weddingDate - afterMonths) / (1000 * 60 * 60 * 24));
-        }
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        // расчёт дней, часов, минут (без месяцев)
+        const totalSeconds = Math.floor(diff / 1000);
+        const days = Math.floor(totalSeconds / (3600 * 24));
+        const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
 
         function plural(n, forms) {
             return n + ' ' + forms[(n % 10 === 1 && n % 100 !== 11) ? 0 : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? 1 : 2];
         }
-        const monthStr = plural(months, ['месяц', 'месяца', 'месяцев']);
+        
         const dayStr = plural(days, ['день', 'дня', 'дней']);
         const hourStr = plural(hours, ['час', 'часа', 'часов']);
         const minuteStr = plural(minutes, ['минута', 'минуты', 'минут']);
 
         document.getElementById('timerDisplay').innerHTML = `
-            <span class="timer-unit">${monthStr}</span>
             <span class="timer-unit">${dayStr}</span>
             <span class="timer-unit">${hourStr}</span>
             <span class="timer-unit">${minuteStr}</span>
